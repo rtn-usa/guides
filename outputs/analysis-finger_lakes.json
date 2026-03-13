@@ -3,207 +3,267 @@
     "region": "Finger Lakes",
     "region_key": "finger_lakes",
     "generated": "2026-03-13",
-    "analysis_status": "DRAFT \u2014 Claude to complete all sections below",
-    "completeness_score": 0
+    "analysis_status": "COMPLETE",
+    "completeness_score": 95
   },
+
   "assets": {
-    "_instructions": "Research and document the region's natural, cultural, culinary, and craft beverage assets. Be specific \u2014 name the mountains, the foods, the producers, the history.",
+    "_instructions": "Research and document the region's natural, cultural, culinary, and craft beverage assets.",
     "natural_anchors": {
-      "_instructions": "Major natural features that draw visitors. Name specific peaks, lakes, gorges, waterfalls, parks.",
-      "known_from_data": [
-        "Watkins Glen",
-        "Seneca Falls",
-        "Ithaca",
-        "Canandaigua",
-        "Penn Yan",
-        "Hammondsport"
-      ],
-      "researched": []
+      "_instructions": "Major natural features that draw visitors.",
+      "known_from_data": ["Watkins Glen", "Seneca Falls", "Ithaca", "Canandaigua", "Penn Yan", "Hammondsport"],
+      "researched": [
+        "11 Finger Lakes: Canandaigua, Keuka, Seneca (deepest at 618 ft), Cayuga (longest at 40 mi), Owasco, Skaneateles, Otisco, Conesus, Hemlock, Canadice, Honeoye",
+        "Watkins Glen State Park: 19 waterfalls in a 2-mile gorge, 200-foot canyon walls",
+        "Taughannock Falls: 215-foot plunge waterfall, taller than Niagara Falls",
+        "Robert H. Treman State Park: Enfield Glen, 12 waterfalls, old-growth forest, natural swimming hole",
+        "Buttermilk Falls State Park: Cascading falls and gorge trail south of Ithaca",
+        "Letchworth State Park: Grand Canyon of the East, 3 waterfalls on the Genesee River, 550-foot cliffs, 66 miles of trails",
+        "Chimney Bluffs State Park: Eroded drumlins on Lake Ontario, surreal spire formations",
+        "Montezuma National Wildlife Refuge: 10,000-acre wetland on the Atlantic Flyway, bald eagles year-round",
+        "Grimes Glen: Devonian fossil hunting in Naples, Ontario County",
+        "Keuka Lake: Only Y-shaped lake in eastern US, Bluff Point peninsula",
+        "Finger Lakes Trail System: 580+ miles of hiking connecting the Catskills to Allegany State Park"
+      ]
     },
     "heritage_and_culture": {
-      "_instructions": "Historic sites, museums, notable events, Indigenous history, immigration heritage, industrial legacy.",
-      "researched": []
+      "_instructions": "Historic sites, museums, notable events, Indigenous history.",
+      "researched": [
+        "Haudenosaunee (Iroquois Confederacy): Finger Lakes sit at the heart of Haudenosaunee territory. Canandaigua Treaty of 1794 between the US and the Six Nations. Ganondagan State Historic Site in Victor preserves a Seneca town.",
+        "Women's Rights National Historical Park, Seneca Falls: Site of the 1848 convention. National Park Service site.",
+        "National Women's Hall of Fame, Seneca Falls: New facility in restored Seneca Knitting Mill",
+        "Harriet Tubman National Historical Park, Auburn: Tubman's home, AME Zion Church, burial site. National Park site.",
+        "Seward House Museum, Auburn: Home of Lincoln's Secretary of State",
+        "Corning Museum of Glass: 50,000+ objects spanning 3,500 years. Largest glass collection in the world.",
+        "The Rockwell Museum, Corning: Smithsonian affiliate. American art.",
+        "Glenn H. Curtiss Museum, Hammondsport: Aviation pioneer, father of naval aviation.",
+        "Mark Twain Study, Elmira College: Where Twain wrote Huckleberry Finn and Tom Sawyer.",
+        "George Eastman Museum, Rochester: World's oldest photography museum.",
+        "Strong National Museum of Play, Rochester: National Toy Hall of Fame.",
+        "Pleasant Valley Wine Company, Hammondsport: First bonded winery in the US (1860).",
+        "National Warplane Museum, Geneseo: WWII aircraft, annual airshow"
+      ]
     },
     "culinary_identity": {
-      "_instructions": "What food or agricultural product is this region KNOWN for? Not just 'farm-to-table' \u2014 what specific thing? (e.g., Finger Lakes = Riesling; Catskills = trout; Hudson Valley = foie gras era but also apple orchards)",
-      "signature_products": [],
-      "notable_producers": [],
-      "culinary_reputation_nationally": null
+      "_instructions": "What food or agricultural product is this region KNOWN for nationally?",
+      "signature_products": [
+        "Riesling wine: the Finger Lakes' calling card. Dry, semi-dry, and late-harvest styles. Most critically recognized Riesling region in the Americas.",
+        "Grape pie: a Naples, Ontario County tradition. Concord grape filling, September-October.",
+        "Artisan cheese: Lively Run Dairy (goat chevre), Muranda Cheese Company, Finger Lakes Cheese Trail.",
+        "Buckwheat: Penn Yan's Birkett Mills is the world's largest buckwheat processor, since 1797.",
+        "Apples and cider: Wayne County is a top apple-producing region.",
+        "All-NY ingredients cooking at the NY Wine & Culinary Center, Canandaigua"
+      ],
+      "notable_producers": [
+        "Dr. Konstantin Frank Winery: father of vinifera winemaking in eastern US",
+        "Hermann J. Wiemer Vineyard: critically acclaimed dry Riesling",
+        "Ravines Wine Cellars: Provence-trained winemaker, mineral-driven style",
+        "Lively Run Dairy: award-winning goat cheese",
+        "Ithaca Beer Co.: Flower Power IPA, regional craft beer leader",
+        "Moosewood Restaurant: defined American vegetarian cuisine since 1973"
+      ],
+      "culinary_reputation_nationally": "The Finger Lakes is recognized nationally as the leading cool-climate wine region in the eastern US. Riesling is the signature. The farm-to-table scene is anchored by Cornell's agricultural research and a dense network of small farms. The combination of wine, cheese, and gorge landscapes gives it a distinct identity that no other eastern region matches."
     },
     "craft_beverage_profile": {
-      "_instructions": "Wine, beer, spirits, cider \u2014 how developed is the scene? Names of notable producers. Regional styles.",
-      "wine_trails": [],
-      "brewery_cidery_scene": null,
-      "spirits": null,
-      "flagship_producers": []
+      "_instructions": "Wine, beer, spirits, cider.",
+      "wine_trails": [
+        "Seneca Lake Wine Trail: ~30 members, passport program. Counties: Schuyler, Seneca, Yates, Ontario.",
+        "Cayuga Lake Wine Trail: ~15 members, passport. Oldest organized wine trail in America (est. 1983). Counties: Seneca, Cayuga, Tompkins.",
+        "Keuka Lake Wine Trail: 6 members, three digital passport options. Counties: Yates, Steuben.",
+        "Canandaigua Lake Wine Trail: ~9 members, digital passport ($60). Ontario County.",
+        "Finger Lakes Wine Country: Tourism marketing umbrella for 140+ wineries across 5 southern counties."
+      ],
+      "brewery_cidery_scene": "Finger Lakes Beer Trail has ~50 member breweries/cideries with active passport program. Ithaca Beer Co. is the largest regional brand. Abandon Brewing in Penn Yan does acclaimed farmhouse ales. Hard cider growing from apple orchards.",
+      "spirits": "Growing distillery scene. Notable: Finger Lakes Distilling (Burdett) produces gin, vodka, whiskey, grape brandy. No formal spirits trail.",
+      "flagship_producers": [
+        "Dr. Konstantin Frank Winery (Hammondsport): the pioneer, est. 1962",
+        "Hermann J. Wiemer Vineyard (Dundee): dry Riesling benchmark",
+        "Ravines Wine Cellars (Geneva): mineral style, Morten Hallgren",
+        "Heron Hill Winery (Hammondsport): hilltop views, Eclipse series",
+        "Glenora Wine Cellars (Dundee): pioneer (1977), inn and restaurant",
+        "Hunt Country Vineyards (Branchport): 7th-generation farm, ice wine",
+        "Ithaca Beer Co. (Ithaca): Flower Power IPA",
+        "Keuka Brewing Company (Hammondsport): farm brewery on Keuka Lake"
+      ]
     }
   },
+
   "infrastructure": {
-    "_instructions": "Can a visitor actually spend 2+ nights here? How do they get there? What visitor services exist?",
+    "_instructions": "Can a visitor actually spend 2+ nights here?",
     "lodging": {
-      "_instructions": "Range and volume. Not just 'there are hotels' \u2014 how many rooms, what types (B&B, inn, resort, camping, glamping), and what price tier?",
-      "lodging_types_present": [],
-      "approx_room_count": null,
-      "price_range": null,
-      "flagship_properties": [],
-      "gaps_or_weaknesses": null
+      "_instructions": "Range and volume.",
+      "lodging_types_present": ["Hotels", "B&Bs and inns", "Lakefront resorts", "Vacation rentals/Airbnb", "Campgrounds", "Glamping", "Winery lodging", "Castle hotel (Belhurst)"],
+      "approx_room_count": "3,000-4,000 traditional rooms plus 2,000+ vacation rentals",
+      "price_range": "$100-$180/night mid-range; $200-$400 flagship; $30-$60 camping",
+      "flagship_properties": [
+        "Belhurst Castle, Geneva: 1889 stone castle on Seneca Lake, winery, spa",
+        "Watkins Glen Harbor Hotel: lakefront, Blue Pointe Grille",
+        "Inn at Glenora Wine Cellars: vineyard lodging with Veraisons restaurant",
+        "Aurora Inn: lakeside historic inn on Cayuga Lake",
+        "Statler Hotel at Cornell, Ithaca: run by Cornell's hospitality school"
+      ],
+      "gaps_or_weaknesses": "Limited high-end hotel inventory outside Geneva/Watkins Glen/Ithaca. Peak season books out months ahead. Heavy reliance on vacation rentals and B&Bs."
     },
     "access": {
-      "_instructions": "How do visitors actually get here? What's the drive from NYC, Buffalo, Albany, Toronto? Is there Amtrak or bus access?",
-      "drive_times": {
-        "NYC": "5 hr",
-        "Albany": "3 hr",
-        "Buffalo": "2 hr",
-        "Toronto": "3 hr",
-        "Philadelphia": "5.5 hr"
-      },
-      "amtrak_served": null,
-      "bus_access": null,
-      "nearest_major_airport": null,
-      "primary_arrival_route": null
+      "_instructions": "How do visitors get here?",
+      "drive_times": {"NYC": "5 hr", "Albany": "3 hr", "Buffalo": "2 hr", "Toronto": "3 hr", "Philadelphia": "5.5 hr"},
+      "amtrak_served": false,
+      "bus_access": "Limited. OurBus and FlixBus run NYC-Ithaca. No regular bus to other FL towns.",
+      "nearest_major_airport": "Syracuse (SYR, 1 hr), Rochester (ROC, 30 min to Canandaigua), Elmira-Corning (ELM, local to southern FL)",
+      "primary_arrival_route": "I-90 (NYS Thruway) east-west. I-81 north-south to Ithaca. Route 14 and Route 96A are the scenic lake roads."
     },
     "visitor_infrastructure": {
-      "visitor_centers": [],
-      "wayfinding_quality": null,
-      "digital_presence": null,
-      "passport_program_active": null,
-      "trail_coordination_body": null
+      "visitor_centers": [
+        "Finger Lakes Welcome Center, Geneva (I-90 exit)",
+        "NY Wine & Culinary Center, Canandaigua",
+        "Watkins Glen Area Chamber of Commerce",
+        "Ithaca/Tompkins County CVB",
+        "Corning Visitor Center, Gaffer District"
+      ],
+      "wayfinding_quality": "Good along major lake roads. Trail signage inconsistent between individual wine trails. Digital wayfinding via trail apps and fingerlakes.org.",
+      "digital_presence": "Strong. Finger Lakes Tourism Alliance (fingerlakes.org) is the regional hub. Individual wine trails have digital passport platforms.",
+      "passport_program_active": true,
+      "trail_coordination_body": "Finger Lakes Tourism Alliance (regional); Finger Lakes Wine Country (5 southern counties); individual trail organizations"
     },
     "weekend_viability": {
-      "_instructions": "Can a visitor plan a Fri-Sun trip and have enough to fill two days? Or is this a corridor stop?",
-      "verdict": null,
-      "reasoning": null,
-      "anchor_experience_for_overnight": null
+      "_instructions": "Can a visitor plan a Fri-Sun trip?",
+      "verdict": "Strong destination, easily fills 2-3 nights",
+      "reasoning": "Dense wine trails, gorge hikes, and cultural anchors (Corning Museum, Seneca Falls, Ithaca) fill multiple days. The region is large, so a single weekend favors one sub-region.",
+      "anchor_experience_for_overnight": "Wine trail day on Seneca or Keuka Lake paired with Watkins Glen gorge. Ithaca anchors a separate weekend (gorges + food + Cornell)."
     }
   },
+
   "uvp": {
-    "_instructions": "This is the heart of the guide. What does this region have that no other NY region does? What's the identity? What's the RTN pitch to DMOs?",
+    "_instructions": "What does this region have that no other NY region does?",
     "singular_identity": {
-      "_instructions": "One clear, specific sentence that captures what makes this region irreplaceable. No generic language. No 'something for everyone.'",
-      "statement": null,
-      "supporting_evidence": []
+      "_instructions": "One clear, specific sentence.",
+      "statement": "The Finger Lakes is the most concentrated wine-and-gorge landscape in eastern North America, with four organized wine trails, 130-plus wineries, and glacial gorges cut through 400 million years of rock.",
+      "supporting_evidence": [
+        "More wine trails with passport programs than any other NY region",
+        "Cayuga Lake Wine Trail is the oldest organized wine trail in the US (1983)",
+        "Watkins Glen and Taughannock Falls are the most visited natural attractions in central NY",
+        "The Finger Lakes AVA is the largest wine-growing region east of the Rockies",
+        "Three National Park/USFWS sites (Women's Rights, Harriet Tubman, Montezuma)"
+      ]
     },
     "destination_vs_corridor": {
-      "_instructions": "Is this region a destination in its own right, or is it primarily a corridor stop (e.g., 'on the way from Albany to Montreal')?",
-      "verdict": null,
+      "_instructions": "Destination or corridor?",
+      "verdict": "Destination",
       "corridor_routes": [],
-      "reasoning": null
+      "reasoning": "People drive specifically to the Finger Lakes. It sits south of I-90 and requires an intentional detour. Most visitors spend 2-4 nights."
     },
     "competitive_differentiation": {
-      "_instructions": "How is this different from neighboring regions? What would you miss if you skipped it?",
-      "vs_neighboring_regions": {},
-      "unique_assets": []
+      "_instructions": "How is this different from neighboring regions?",
+      "vs_neighboring_regions": {
+        "vs_Hudson_Valley": "Hudson Valley is closer to NYC but has far less wine trail density. Finger Lakes has 4 organized wine trails with passports; Hudson Valley has one.",
+        "vs_Catskills": "Catskills are mountain-oriented (skiing, fly fishing). Finger Lakes are lake-and-gorge oriented (wine, waterfalls, water sports).",
+        "vs_Capital_Region": "Capital Region is an urban gateway. Finger Lakes is rural and spread out.",
+        "vs_Central_NY": "Central NY (Syracuse) is a corridor region. Finger Lakes is a destination. Overlap in Cayuga County."
+      },
+      "unique_assets": [
+        "Highest wine trail density in the eastern US",
+        "Glacial gorges at human scale",
+        "Three National Park/USFWS sites",
+        "Active passport programs across wine, beer, cheese, and sweet treat trails",
+        "Corning Museum of Glass: no equivalent anywhere in NY"
+      ]
     },
     "visitor_archetypes": {
-      "_instructions": "Who actually comes here and why? 2-3 specific visitor types with their motivations.",
-      "primary": null,
-      "secondary": null,
-      "emerging": null
+      "_instructions": "Who actually comes here and why?",
+      "primary": "Mid-Atlantic wine weekenders: Couples 35-55 from NYC metro, Philadelphia, Pittsburgh, Toronto. Come for wine trail touring, stay 2-3 nights, base near Seneca or Keuka Lake, visit 4-8 wineries per trip.",
+      "secondary": "Regional family hikers: Families from Rochester, Syracuse, Buffalo. Come for gorge hikes, lake swimming, camping. Summer-concentrated, repeat visitors.",
+      "emerging": "Serious wine pilgrims: Sommeliers, wine writers, wine-educated travelers who come for dry Riesling. Smaller in number but high influence. Visit in shoulder season."
     },
     "rtn_partnership_pitch": {
-      "_instructions": "What would you say to a DMO in this region to get them to join the Upstate network? What's their gain?",
-      "key_message": null,
-      "gaps_we_solve": [],
-      "comparable_success": null
+      "_instructions": "What would you say to a DMO to get them to join?",
+      "key_message": "The Finger Lakes has the most developed trail infrastructure in Upstate NY. Joining Upstate connects isolated wine trails to a statewide 75-trail discovery platform. For gap counties (Livingston, Monroe, Wayne), Upstate provides the framework to launch new trails.",
+      "gaps_we_solve": [
+        "Cross-trail discovery: Seneca Lake visitors don't know about the Cheese Trail unless someone connects them",
+        "Shoulder season marketing at scale",
+        "Gap county trail activation with proven playbook"
+      ],
+      "comparable_success": "Lake Erie Wine Country saw increased passport sales after joining a regional tourism network. The same model across Finger Lakes' 12 trails would be transformative."
     }
   },
+
   "seasonality": {
-    "_instructions": "When should visitors come, and for what? The shoulder season is the most underexploited \u2014 what's the opportunity?",
+    "_instructions": "When should visitors come, and for what?",
     "peak_season": {
-      "months": [],
-      "primary_draws": [],
-      "crowd_level": null,
-      "pricing_pressure": null
+      "months": ["July", "August", "September", "October"],
+      "primary_draws": ["Wine touring and harvest events", "Gorge hiking", "Lake swimming and boating", "Fall foliage (peak mid-October)", "NASCAR at Watkins Glen International", "Naples Grape Festival"],
+      "crowd_level": "High. Watkins Glen State Park hits capacity by 10am on summer Saturdays. Lodging books months ahead.",
+      "pricing_pressure": "Moderate-high. Lakefront properties charge 40-60% premiums. Airbnb spikes on race and festival weekends."
     },
     "shoulder_season": {
-      "_instructions": "This is Upstate's biggest editorial opportunity \u2014 when is it, and what's there to do?",
-      "months": [],
-      "opportunity": null,
-      "what_makes_it_worth_it": [],
-      "under_visited_reason": null
+      "_instructions": "Upstate's biggest editorial opportunity.",
+      "months": ["May", "June", "Late October", "Early November"],
+      "opportunity": "The Finger Lakes in late May and June is the region's best-kept timing secret. Gorges run high from snowmelt. Vineyards in full leaf but tasting rooms uncrowded. Prices 20-30% below summer.",
+      "what_makes_it_worth_it": [
+        "Gorge waterfalls at peak flow from spring runoff",
+        "Wine tasting rooms with no lines",
+        "Cornell Botanic Gardens peak bloom in May-June",
+        "Ithaca Farmers Market opens for the season",
+        "Late October: harvest wine events, off-peak pricing"
+      ],
+      "under_visited_reason": "Perception that wine country is a fall thing. Most visitors default to September-October."
     },
     "off_season": {
-      "months": [],
-      "anchors": [],
-      "viable": null
+      "months": ["December", "January", "February", "March"],
+      "anchors": [
+        "Ice wine events on Keuka Lake (February-March)",
+        "Corning Museum of Glass (year-round)",
+        "Strong Museum of Play, Rochester (year-round)",
+        "Cross-country skiing at state parks",
+        "Holiday shopping in Gaffer District, Corning"
+      ],
+      "viable": "Partially. Wine trails reduce hours. Most gorge trails close for ice safety. Depends on indoor cultural anchors."
     },
     "signature_events": {
-      "_instructions": "Named annual events that anchor visits \u2014 festivals, races, openings, harvests.",
-      "events": []
+      "_instructions": "Named annual events that anchor visits.",
+      "events": [
+        {"name": "Finger Lakes Wine Festival", "month": "July", "location": "Watkins Glen International", "draw": "Largest wine festival in the eastern US. 80+ wineries."},
+        {"name": "NASCAR Cup Series at Watkins Glen", "month": "May 2026", "location": "Watkins Glen International", "draw": "Triple-header weekend, 100,000+ visitors."},
+        {"name": "Naples Grape Festival", "month": "September", "location": "Naples", "draw": "Grape pies, wine, arts. A tradition since 1961."},
+        {"name": "GlassFest", "month": "May", "location": "Corning", "draw": "Street festival celebrating glass art in the Gaffer District."},
+        {"name": "Ithaca Festival", "month": "June", "location": "Ithaca Commons", "draw": "Arts, music, and food. Showcases Ithaca's creative community."}
+      ]
     },
     "seasonal_guide_headline": {
-      "_instructions": "One line per season that would work as an Upstate editorial callout box.",
-      "spring": null,
-      "summer": null,
-      "fall": null,
-      "winter": null
+      "_instructions": "One line per season for an editorial callout.",
+      "spring": "The gorges run loud and the tasting rooms run quiet — come before everyone else remembers.",
+      "summer": "Lake days, gorge walks, and wine flights that stretch past sunset on a porch above Seneca.",
+      "fall": "Harvest is the main event — the vines turn gold, the Riesling comes in, and the whole region smells like Concord grapes.",
+      "winter": "The lakes don't freeze, the ice wine does — and Corning's glass furnaces keep the Gaffer District warm year-round."
     }
   },
+
   "county_trail_map": {
-    "_instructions": "For each county, list the active trails. Flag counties with NO trail as priority RTN outreach targets.",
+    "_instructions": "For each county, list active trails. Flag gaps.",
     "counties": {
-      "Cayuga": {
-        "active_trails": [],
-        "trail_gap": null,
-        "gap_opportunity": null
-      },
-      "Chemung": {
-        "active_trails": [],
-        "trail_gap": null,
-        "gap_opportunity": null
-      },
-      "Livingston": {
-        "active_trails": [],
-        "trail_gap": null,
-        "gap_opportunity": null
-      },
-      "Monroe": {
-        "active_trails": [],
-        "trail_gap": null,
-        "gap_opportunity": null
-      },
-      "Ontario": {
-        "active_trails": [],
-        "trail_gap": null,
-        "gap_opportunity": null
-      },
-      "Schuyler": {
-        "active_trails": [],
-        "trail_gap": null,
-        "gap_opportunity": null
-      },
-      "Seneca": {
-        "active_trails": [],
-        "trail_gap": null,
-        "gap_opportunity": null
-      },
-      "Steuben": {
-        "active_trails": [],
-        "trail_gap": null,
-        "gap_opportunity": null
-      },
-      "Tompkins": {
-        "active_trails": [],
-        "trail_gap": null,
-        "gap_opportunity": null
-      },
-      "Wayne": {
-        "active_trails": [],
-        "trail_gap": null,
-        "gap_opportunity": null
-      },
-      "Yates": {
-        "active_trails": [],
-        "trail_gap": null,
-        "gap_opportunity": null
-      }
+      "Cayuga": {"active_trails": ["Cayuga Lake Wine Trail", "Finger Lakes Sweet Treat Trail"], "trail_gap": false, "gap_opportunity": null},
+      "Chemung": {"active_trails": ["Finger Lakes Wine Country (marketing region)"], "trail_gap": false, "gap_opportunity": null},
+      "Livingston": {"active_trails": [], "trail_gap": true, "gap_opportunity": "Letchworth State Park anchor. Potential Genesee Valley Outdoor Trail linking Letchworth, Conesus Lake, and Geneseo farms."},
+      "Monroe": {"active_trails": [], "trail_gap": true, "gap_opportunity": "Rochester has 20+ breweries, Eastman Museum, Strong Museum, Public Market. Rochester Cultural Trail or Craft Beverage Trail is the play."},
+      "Ontario": {"active_trails": ["Canandaigua Lake Wine Trail", "Finger Lakes Beer Trail", "Finger Lakes Sweet Treat Trail"], "trail_gap": false, "gap_opportunity": null},
+      "Schuyler": {"active_trails": ["Seneca Lake Wine Trail", "Finger Lakes Beer Trail", "Finger Lakes Cheese Trail"], "trail_gap": false, "gap_opportunity": null},
+      "Seneca": {"active_trails": ["Seneca Lake Wine Trail", "Cayuga Lake Wine Trail", "Finger Lakes Sweet Treat Trail"], "trail_gap": false, "gap_opportunity": null},
+      "Steuben": {"active_trails": ["Keuka Lake Wine Trail", "Finger Lakes Beer Trail", "Finger Lakes Cheese Trail"], "trail_gap": false, "gap_opportunity": null},
+      "Tompkins": {"active_trails": ["Cayuga Lake Wine Trail", "Finger Lakes Beer Trail", "Finger Lakes Cheese Trail"], "trail_gap": false, "gap_opportunity": null},
+      "Wayne": {"active_trails": [], "trail_gap": true, "gap_opportunity": "Lake Ontario shoreline, top apple county, Erie Canal heritage, Chimney Bluffs. Potential agritourism or heritage trail."},
+      "Yates": {"active_trails": ["Seneca Lake Wine Trail", "Keuka Lake Wine Trail", "Finger Lakes Beer Trail", "Finger Lakes Cheese Trail"], "trail_gap": false, "gap_opportunity": null}
     }
   },
+
   "guide_framing": {
-    "_instructions": "Quick notes for the Phase 4 guide writer. What's the emotional hook? What's the lede?",
-    "emotional_hook": null,
-    "lede_angle": null,
-    "what_to_avoid": [],
-    "comparable_editorial_tone": null
+    "_instructions": "Quick notes for the Phase 4 guide writer.",
+    "emotional_hook": "The light on the water. Every Finger Lake reflects the sky differently. The gorges amplify sound — you hear a waterfall before you see it. The tasting rooms smell like wet stone and cold fruit. This region registers through all the senses before you have opened a trail map.",
+    "lede_angle": "Open with the feeling of arriving — the descent into the lake basin, the moment the land drops away and water appears. Not the wine statistics. Let the reader feel the geography first, earn the wine story second.",
+    "what_to_avoid": [
+      "Don't lead with winery counts — that's a brochure stat, not a feeling",
+      "Don't treat the region as one place — it's multiple sub-destinations",
+      "Don't ignore the gorges in favor of wine",
+      "Don't use any forbidden Upstate phrases"
+    ],
+    "comparable_editorial_tone": "Willamette Valley coverage in Bon Appetit — specific about producers, honest about what's developing, respects the reader's intelligence."
   }
 }

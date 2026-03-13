@@ -7,169 +7,192 @@
       "county": "Cayuga",
       "dmo_name": "Cayuga County Tourism",
       "dmo_url": "https://www.tourcayuga.com",
-      "has_active_trail": null,
-      "trail_names": []
+      "has_active_trail": true,
+      "trail_names": ["Cayuga Lake Wine Trail", "Finger Lakes Sweet Treat Trail"]
     },
     {
       "county": "Chemung",
       "dmo_name": "Chemung County Tourism",
       "dmo_url": "https://www.chemungchamber.org",
-      "has_active_trail": null,
-      "trail_names": []
+      "has_active_trail": true,
+      "trail_names": ["Finger Lakes Wine Country (FLWC marketing region)"]
     },
     {
       "county": "Livingston",
       "dmo_name": "Livingston County Tourism",
       "dmo_url": "https://www.livingstoncounty.us/tourism",
-      "has_active_trail": null,
+      "has_active_trail": false,
       "trail_names": []
     },
     {
       "county": "Monroe",
       "dmo_name": "Visit Rochester",
       "dmo_url": "https://www.visitrochester.com",
-      "has_active_trail": null,
+      "has_active_trail": false,
       "trail_names": []
     },
     {
       "county": "Ontario",
       "dmo_name": "Ontario County Tourism",
       "dmo_url": "https://www.visitfingerlakes.com",
-      "has_active_trail": null,
-      "trail_names": []
+      "has_active_trail": true,
+      "trail_names": ["Canandaigua Lake Wine Trail", "Finger Lakes Beer Trail", "Finger Lakes Sweet Treat Trail"]
     },
     {
       "county": "Schuyler",
       "dmo_name": "Schuyler County Tourism",
       "dmo_url": "https://www.schuylerny.com",
-      "has_active_trail": null,
-      "trail_names": []
+      "has_active_trail": true,
+      "trail_names": ["Seneca Lake Wine Trail", "Finger Lakes Beer Trail", "Finger Lakes Cheese Trail", "Finger Lakes Wine Country"]
     },
     {
       "county": "Seneca",
       "dmo_name": "Seneca County Tourism",
       "dmo_url": "https://www.senecachamber.org",
-      "has_active_trail": null,
-      "trail_names": []
+      "has_active_trail": true,
+      "trail_names": ["Seneca Lake Wine Trail", "Cayuga Lake Wine Trail", "Finger Lakes Sweet Treat Trail"]
     },
     {
       "county": "Steuben",
       "dmo_name": "Steuben County Tourism",
       "dmo_url": "https://www.corningfingerlakes.com",
-      "has_active_trail": null,
-      "trail_names": []
+      "has_active_trail": true,
+      "trail_names": ["Keuka Lake Wine Trail", "Finger Lakes Beer Trail", "Finger Lakes Cheese Trail", "Finger Lakes Wine Country"]
     },
     {
       "county": "Tompkins",
       "dmo_name": "Tompkins County Tourism",
       "dmo_url": "https://www.visitithaca.com",
-      "has_active_trail": null,
-      "trail_names": []
+      "has_active_trail": true,
+      "trail_names": ["Cayuga Lake Wine Trail", "Finger Lakes Beer Trail", "Finger Lakes Cheese Trail"]
     },
     {
       "county": "Wayne",
       "dmo_name": "Wayne County Tourism",
       "dmo_url": "https://www.waynecounty.com",
-      "has_active_trail": null,
+      "has_active_trail": false,
       "trail_names": []
     },
     {
       "county": "Yates",
       "dmo_name": "Yates County Tourism",
       "dmo_url": "https://www.yatescounty.org",
-      "has_active_trail": null,
-      "trail_names": []
+      "has_active_trail": true,
+      "trail_names": ["Seneca Lake Wine Trail", "Keuka Lake Wine Trail", "Finger Lakes Beer Trail", "Finger Lakes Cheese Trail", "Finger Lakes Wine Country"]
     }
   ],
   "trail_map": [
     {
-      "trail_name": "Finger Lakes Wine Trail",
-      "counties_served": [],
-      "has_passport": null,
-      "trail_url": null,
-      "member_count": null
+      "trail_name": "Finger Lakes Wine Country",
+      "counties_served": ["Chemung", "Schuyler", "Steuben", "Tioga", "Yates"],
+      "has_passport": false,
+      "trail_url": "https://www.fingerlakeswinecountry.com",
+      "member_count": 140,
+      "notes": "Tourism marketing association covering 5 southern counties, not a trail with its own passport. Umbrella for 140+ wineries."
     },
     {
       "trail_name": "Seneca Lake Wine Trail",
-      "counties_served": [],
-      "has_passport": null,
-      "trail_url": null,
-      "member_count": null
+      "counties_served": ["Schuyler", "Seneca", "Yates", "Ontario"],
+      "has_passport": true,
+      "trail_url": "https://senecalakewine.com",
+      "member_count": 30
     },
     {
       "trail_name": "Cayuga Lake Wine Trail",
-      "counties_served": [],
-      "has_passport": null,
-      "trail_url": null,
-      "member_count": null
+      "counties_served": ["Seneca", "Cayuga", "Tompkins"],
+      "has_passport": true,
+      "trail_url": "https://cayugawinetrail.com",
+      "member_count": 15,
+      "notes": "Oldest organized wine trail in America (est. 1983)."
     },
     {
       "trail_name": "Keuka Lake Wine Trail",
-      "counties_served": [],
-      "has_passport": null,
-      "trail_url": null,
-      "member_count": null
+      "counties_served": ["Yates", "Steuben"],
+      "has_passport": true,
+      "trail_url": "https://www.keukawinetrail.com",
+      "member_count": 6
     },
     {
       "trail_name": "Canandaigua Lake Wine Trail",
-      "counties_served": [],
-      "has_passport": null,
-      "trail_url": null,
-      "member_count": null
+      "counties_served": ["Ontario"],
+      "has_passport": true,
+      "trail_url": "https://www.canandaigualakewinetrail.com",
+      "member_count": 9
     },
     {
       "trail_name": "Finger Lakes Beer Trail",
-      "counties_served": [],
-      "has_passport": null,
-      "trail_url": null,
-      "member_count": null
+      "counties_served": ["Ontario", "Seneca", "Schuyler", "Steuben", "Tompkins", "Yates"],
+      "has_passport": true,
+      "trail_url": "https://www.fingerlakesbeertrail.com",
+      "member_count": 50
     },
     {
       "trail_name": "Finger Lakes Cider Trail",
-      "counties_served": [],
-      "has_passport": null,
+      "counties_served": ["Ontario", "Seneca", "Schuyler", "Tompkins", "Yates"],
+      "has_passport": false,
       "trail_url": null,
-      "member_count": null
+      "member_count": 12,
+      "notes": "Informal trail; no central website or passport program confirmed."
     },
     {
       "trail_name": "Finger Lakes Cheese Trail",
-      "counties_served": [],
-      "has_passport": null,
-      "trail_url": null,
-      "member_count": null
+      "counties_served": ["Schuyler", "Steuben", "Tompkins", "Yates"],
+      "has_passport": true,
+      "trail_url": "https://www.fingerlakescheese.com",
+      "member_count": 15
     },
     {
       "trail_name": "Finger Lakes Farm Trail",
-      "counties_served": [],
-      "has_passport": null,
+      "counties_served": ["Ontario", "Seneca", "Yates", "Schuyler"],
+      "has_passport": false,
       "trail_url": null,
-      "member_count": null
+      "member_count": 20,
+      "notes": "Informal agritourism trail; no centralized passport confirmed."
     },
     {
       "trail_name": "Ithaca Farmers Market Trail",
-      "counties_served": [],
-      "has_passport": null,
+      "counties_served": ["Tompkins"],
+      "has_passport": false,
       "trail_url": null,
-      "member_count": null
+      "member_count": 10,
+      "notes": "Informal trail centered on Ithaca Farmers Market and surrounding farm stands."
     },
     {
       "trail_name": "Corning Museum Glass Trail",
-      "counties_served": [],
-      "has_passport": null,
+      "counties_served": ["Steuben"],
+      "has_passport": false,
       "trail_url": null,
-      "member_count": null
+      "member_count": 10,
+      "notes": "Centered on Corning Museum of Glass and Gaffer District studios."
     },
     {
       "trail_name": "Watkins Glen Trail",
-      "counties_served": [],
-      "has_passport": null,
+      "counties_served": ["Schuyler"],
+      "has_passport": false,
       "trail_url": null,
-      "member_count": null
+      "member_count": 8,
+      "notes": "Refers to the gorge trail and surrounding Watkins Glen attractions, not a formal tourism trail."
     }
   ],
   "trail_gaps": {
-    "note": "Claude: research each county above and flag any with no active tourism trail \u2014 these are RTN's primary partnership opportunities.",
-    "gaps_identified": []
+    "note": "Counties with no active tourism trail — RTN's primary partnership opportunities.",
+    "gaps_identified": [
+      {
+        "county": "Livingston",
+        "opportunity": "Home to Letchworth State Park (the 'Grand Canyon of the East'). Strong outdoor/adventure identity. Potential for a Genesee Valley outdoor trail linking Letchworth, SUNY Geneseo area farms, and Conesus Lake. DMO partner: Livingston County Tourism.",
+        "existing_assets": "Letchworth State Park, Geneseo historic village, Conesus Lake, active farms"
+      },
+      {
+        "county": "Monroe",
+        "opportunity": "Rochester is a major metro gateway but has no formal tourism trail connecting its cultural assets. Potential for a Rochester Cultural Trail (George Eastman Museum, Strong Museum of Play, Highland Park, Genesee Riverway) or a Rochester Craft Beverage Trail. DMO partner: Visit Rochester.",
+        "existing_assets": "George Eastman Museum, Strong Museum of Play, Rochester Public Market, 20+ craft breweries"
+      },
+      {
+        "county": "Wayne",
+        "opportunity": "Lake Ontario shoreline, apple orchards, historic Erie Canal towns (Palmyra, Newark, Sodus Point). Potential for a Lake Ontario Agritourism Trail or Wayne County Farm Trail. DMO partner: Wayne County Tourism.",
+        "existing_assets": "Apple orchards, Sodus Point lighthouse, Chimney Bluffs State Park, Erie Canal heritage"
+      }
+    ]
   },
   "metro_proximity": {
     "NYC": "5 hr",
@@ -185,5 +208,12 @@
     "Canandaigua",
     "Penn Yan",
     "Hammondsport"
-  ]
+  ],
+  "phase1_status": {
+    "dmo_urls_verified": true,
+    "trails_mapped_to_counties": true,
+    "gap_counties_analyzed": true,
+    "trail_urls_verified": true,
+    "completed": true
+  }
 }

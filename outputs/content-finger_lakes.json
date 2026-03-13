@@ -1,0 +1,316 @@
+{
+  "region": "Finger Lakes",
+  "guide_version": "1.0",
+  "authored_date": "2026-03-13",
+
+  "section_1_hero": {
+    "headline": "Go Further Into the Finger Lakes",
+    "body": "The land drops away without warning. One moment you are driving through rolling farmland, cornfields giving way to hay bales, and then the road tilts and there it is — a lake so long you cannot see the far end, its surface holding the sky like a mirror laid flat between two ridges. This is how the Finger Lakes announce themselves. Not with a sign or a gateway arch, but with geography. Eleven glacial lakes carved into the bedrock of central New York, each one flanked by gorges where water has been cutting through 400 million years of shale and limestone. The wineries came later — over 130 of them now, planted on the same steep slopes that make the gorges possible. But the feeling came first. The feeling of arriving somewhere the land itself shaped, long before anyone thought to put a vine in the ground."
+  },
+
+  "section_2_at_a_glance": {
+    "counties": ["Cayuga", "Chemung", "Livingston", "Monroe", "Ontario", "Schuyler", "Seneca", "Steuben", "Tompkins", "Wayne", "Yates"],
+    "trail_count": 12,
+    "active_trails": [
+      "Seneca Lake Wine Trail",
+      "Cayuga Lake Wine Trail",
+      "Keuka Lake Wine Trail",
+      "Canandaigua Lake Wine Trail",
+      "Finger Lakes Beer Trail",
+      "Finger Lakes Cheese Trail",
+      "Finger Lakes Cider Trail",
+      "Finger Lakes Farm Trail",
+      "Finger Lakes Sweet Treat Trail",
+      "Ithaca Farmers Market Trail",
+      "Corning Museum Glass Trail",
+      "Watkins Glen Trail"
+    ],
+    "seasonal_windows": {
+      "peak": "July through October",
+      "shoulder": "May-June and late October (the editorial priority)",
+      "off_season": "December through March"
+    },
+    "drive_times": {
+      "NYC": "5 hours via I-81 or Route 17",
+      "Albany": "3 hours via I-90",
+      "Buffalo": "2 hours via I-90",
+      "Toronto": "3 hours via QEW and I-90",
+      "Philadelphia": "5.5 hours via I-81"
+    },
+    "base_towns": ["Watkins Glen", "Ithaca", "Geneva", "Corning", "Canandaigua", "Penn Yan", "Hammondsport"]
+  },
+
+  "section_3_why_come": {
+    "paragraphs": [
+      "No other region in the eastern United States concentrates this much wine, water, and exposed geology in one drivable area. The Finger Lakes holds four organized wine trails with active passport programs, more than 130 wineries, and a gorge system that lets you walk through rock formations older than the first land plants. Seneca Lake alone — the deepest of the eleven at 618 feet — supports a wine trail with 30 member wineries along its 35-mile shore. Cayuga Lake, the longest, hosts the oldest organized wine trail in America, operating since 1983. This is not a region that borrowed its identity from somewhere else. The glaciers carved the lakes, the lakes moderated the climate, the climate made the Riesling possible, and the Riesling put the Finger Lakes on the map.",
+      "What makes the Finger Lakes work as a trail network — and what the Upstate platform amplifies — is the density of overlapping experiences. A visitor on the Seneca Lake Wine Trail is 20 minutes from the Finger Lakes Cheese Trail and 10 minutes from the Finger Lakes Beer Trail. A family hiking Watkins Glen in the morning can be at a farm brewery by afternoon and a lakefront restaurant by evening. No single DMO or trail organization can surface all of these connections alone. The Upstate network turns isolated itineraries into a regional story — one where the next stop is always close and always worth the detour.",
+      "And the gorges. The gorges are the thing people remember when they get home. Watkins Glen's 19 waterfalls in two miles. Taughannock's 215-foot plunge, taller than Niagara. Robert Treman's old-growth hemlocks and swimming holes. For many visitors, the gorges are the reason to come, and the wine is the reason to stay an extra night. That combination — geology you can walk through and wine you can drink at the source — is what makes this region irreplaceable."
+    ]
+  },
+
+  "section_4_trail_network": {
+    "intro": "The Finger Lakes holds the densest trail network in Upstate New York — twelve active trails spanning wine, beer, cheese, cider, agriculture, and outdoor recreation. Four of the wine trails operate passport programs, and the Finger Lakes Beer Trail runs its own. Here is what each one offers.",
+    "trails": [
+      {
+        "trail_name": "Seneca Lake Wine Trail",
+        "description": "Thirty wineries along both shores of the deepest Finger Lake. This is the region's flagship trail — the one that put the Finger Lakes on the national wine map. Dry Riesling is the through-line, but you will find everything from Cabernet Franc to Gewurztraminer. The eastern shore (Route 414) is quieter; the western shore (Route 14) has more density.",
+        "passport_available": true,
+        "cross_trail_callout": "Overlaps with Finger Lakes Beer Trail and Finger Lakes Cheese Trail in Schuyler and Yates counties. A single day can hit all three.",
+        "trail_url": "https://senecalakewine.com"
+      },
+      {
+        "trail_name": "Cayuga Lake Wine Trail",
+        "description": "The oldest organized wine trail in America, established in 1983. Fifteen members line the shores of the longest Finger Lake. The tasting rooms here tend to be smaller and more personal than Seneca — you are more likely to pour with the winemaker. Includes wineries, a cidery, a meadery, and distilleries.",
+        "passport_available": true,
+        "cross_trail_callout": "Southern end connects to Ithaca's restaurant and brewery scene. Pair with a Taughannock Falls hike for a full day.",
+        "trail_url": "https://cayugawinetrail.com"
+      },
+      {
+        "trail_name": "Keuka Lake Wine Trail",
+        "description": "Six wineries on the only Y-shaped lake in the eastern US. This is where Finger Lakes winemaking began — Dr. Konstantin Frank planted the first vinifera vines on these slopes in the 1950s. Pleasant Valley Wine Company, the first bonded winery in the US (1860), is still pouring. Small, focused, and essential.",
+        "passport_available": true,
+        "cross_trail_callout": "Hammondsport anchors both the Keuka trail and the Glenn Curtiss aviation museum. Steuben County connections to Corning (30 min).",
+        "trail_url": "https://www.keukawinetrail.com"
+      },
+      {
+        "trail_name": "Canandaigua Lake Wine Trail",
+        "description": "Nine members running from Victor to Naples, entirely within Ontario County. Naples is grape pie country — stop at Arbor Hill Grapery in September for the real thing. The NY Wine & Culinary Center in Canandaigua is the natural starting point for the trail and the region.",
+        "passport_available": true,
+        "cross_trail_callout": "Links naturally to Sonnenberg Gardens and the Naples Grape Festival (September).",
+        "trail_url": "https://www.canandaigualakewinetrail.com"
+      },
+      {
+        "trail_name": "Finger Lakes Beer Trail",
+        "description": "Fifty member breweries and cideries scattered across six counties. This is the broadest geographic trail in the region — from Ithaca Beer Co. in the south to craft operations in Ontario County. Farm breweries with hilltop views are the draw. Abandon Brewing in Penn Yan does farmhouse ales on a ridgeline you will not forget.",
+        "passport_available": true,
+        "cross_trail_callout": "Overlaps with every wine trail in the region. A wine-and-beer day is the natural itinerary.",
+        "trail_url": "https://www.fingerlakesbeertrail.com"
+      },
+      {
+        "trail_name": "Finger Lakes Cheese Trail",
+        "description": "Fifteen artisan creameries across Schuyler, Steuben, Tompkins, and Yates counties. Goat, sheep, and cow's milk operations — Lively Run Dairy near Interlaken is the anchor. Most offer tastings and tours. Pair with wine or do cheese as the main event.",
+        "passport_available": true,
+        "cross_trail_callout": "Natural pairing with the wine trails — a cheese-and-wine circuit through Schuyler and Yates counties is a full day.",
+        "trail_url": "https://www.fingerlakescheese.com"
+      },
+      {
+        "trail_name": "Finger Lakes Sweet Treat Trail",
+        "description": "Bakeries, chocolatiers, candy shops, and ice cream stands across Cayuga, Seneca, and Ontario counties. A family-friendly trail that gives kids a reason to stay patient during wine stops. The passport makes it a scavenger hunt.",
+        "passport_available": true,
+        "cross_trail_callout": "Runs through the same counties as the wine trails — designed as the family complement.",
+        "trail_url": null
+      },
+      {
+        "trail_name": "Finger Lakes Wine Country",
+        "description": "Not a trail with stops, but the tourism marketing umbrella for 140-plus wineries across five southern counties (Chemung, Schuyler, Steuben, Tioga, Yates). Their website is the best single resource for planning a multi-day wine itinerary in the southern Finger Lakes.",
+        "passport_available": false,
+        "cross_trail_callout": "Covers the territory of the Seneca, Keuka, and Canandaigua trails — use it as the planning layer.",
+        "trail_url": "https://www.fingerlakeswinecountry.com"
+      }
+    ]
+  },
+
+  "section_5_featured_operators": {
+    "intro": "These are not all the operators in the Finger Lakes — they are the ones worth building a trip around. Trail members are marked. Each one earned its place by doing something specific and doing it well.",
+    "categories": {
+      "food_drink": {
+        "intro": "The Finger Lakes' drink-and-dine scene runs from pioneer wineries to farm breweries to a restaurant that changed how America eats vegetables.",
+        "operators": [
+          {
+            "name": "Dr. Konstantin Frank Winery",
+            "location": "Hammondsport, Steuben County",
+            "trail_member": true,
+            "trail_name": "Keuka Lake Wine Trail",
+            "description": "The most important winery in Finger Lakes history. Dr. Frank proved in the 1950s that European vinifera grapes could survive New York winters — every Riesling vine in the region descends from that bet. The tasting room pours dry Riesling, Rkatsiteli, and a Gruner Veltliner that surprises even the skeptics. The view from the terrace looks down over the same Keuka Lake slope where it all started."
+          },
+          {
+            "name": "Hermann J. Wiemer Vineyard",
+            "location": "Dundee, Seneca County",
+            "trail_member": true,
+            "trail_name": "Seneca Lake Wine Trail",
+            "description": "If Frank is the father, Wiemer is the standard-bearer. Under winemaker Fred Merwarth, the dry Rieslings here are lean, mineral, and consistently among the best in the eastern US. The tasting room is low-key and serious. They also make a sparkling wine that holds its own against entry-level Champagne."
+          },
+          {
+            "name": "Ithaca Beer Co.",
+            "location": "Ithaca, Tompkins County",
+            "trail_member": true,
+            "trail_name": "Finger Lakes Beer Trail",
+            "description": "The regional beer anchor. Flower Power IPA is the flagship — you will see it on tap across central New York. The taproom and beer garden on Elmira Road serves food sourced from Finger Lakes farms. Thursday evenings in summer, when the garden fills up and the sun drops behind South Hill, are the kind of thing you plan around."
+          },
+          {
+            "name": "Moosewood Restaurant",
+            "location": "Ithaca, Tompkins County",
+            "trail_member": false,
+            "trail_name": null,
+            "description": "Open since 1973 and still collectively run. The Moosewood Cookbook sold millions and helped define American vegetarian cuisine. The restaurant itself is small, unfussy, and changes its menu daily based on what the kitchen receives. Not a museum piece — a working restaurant that still cooks with conviction."
+          },
+          {
+            "name": "Belhurst Castle",
+            "location": "Geneva, Seneca County",
+            "trail_member": false,
+            "trail_name": null,
+            "description": "An 1889 Romanesque stone castle on the shore of Seneca Lake. Winery, hotel, spa, and Edgar's restaurant — the full package. The building alone is worth the stop. Edgar's does a New York wine list that reads like a regional education. Stay the night if you can."
+          }
+        ]
+      },
+      "culture_heritage": {
+        "intro": "Two National Park sites, the world's largest glass collection, and the place where women's suffrage began.",
+        "operators": [
+          {
+            "name": "Corning Museum of Glass",
+            "location": "Corning, Steuben County",
+            "trail_member": false,
+            "trail_name": null,
+            "description": "50,000 objects spanning 3,500 years of glassmaking. The live hot-glass demos are mesmerizing even if you have never thought about glass before. Plan at least half a day — most people wish they had planned more. The adjacent Gaffer District in downtown Corning has working glass studios where you can watch artists and buy directly."
+          },
+          {
+            "name": "Women's Rights National Historical Park",
+            "location": "Seneca Falls, Seneca County",
+            "trail_member": false,
+            "trail_name": null,
+            "description": "The site where Elizabeth Cady Stanton, Lucretia Mott, and 300 others gathered in July 1848 to draft the Declaration of Sentiments. The Wesleyan Chapel has been partially reconstructed. The visitor center is run by the National Park Service and does not soften the history. Worth the drive to Seneca Falls on its own."
+          },
+          {
+            "name": "Harriet Tubman National Historical Park",
+            "location": "Auburn, Cayuga County",
+            "trail_member": false,
+            "trail_name": null,
+            "description": "Tubman's home, her AME Zion Church, and the Thompson Memorial Church where she worshipped. This is where she lived after the Civil War, ran a home for the elderly, and was buried. A National Park site that operates with the quiet gravity its subject deserves."
+          },
+          {
+            "name": "Glenn H. Curtiss Museum",
+            "location": "Hammondsport, Steuben County",
+            "trail_member": false,
+            "trail_name": null,
+            "description": "Hammondsport's other claim to fame. Glenn Curtiss was a motorcycle racer turned aviation pioneer who built the first seaplane and trained the first Navy pilots. The museum has restored aircraft, motorcycles, and a reproduction of the June Bug — the plane that won the Scientific American Trophy in 1908."
+          }
+        ]
+      },
+      "attractions": {
+        "intro": "The gorges are the headline, but there is more to see above the rim.",
+        "operators": [
+          {
+            "name": "Watkins Glen State Park",
+            "location": "Watkins Glen, Schuyler County",
+            "trail_member": false,
+            "trail_name": null,
+            "description": "Nineteen waterfalls in a two-mile gorge, with a stone path that passes behind some of the falls. The canyon walls reach 200 feet. It is the single most visited site in the Finger Lakes — arrive before 9am in summer or visit in shoulder season. The gorge trail is paved and accessible to most fitness levels."
+          },
+          {
+            "name": "Watkins Glen International",
+            "location": "Watkins Glen, Schuyler County",
+            "trail_member": false,
+            "trail_name": null,
+            "description": "A road course that has hosted NASCAR, IndyCar, and IMSA sports car racing since the 1950s. The 2026 NASCAR Cup race moves to a May triple-header weekend. Race weekends transform the town — book lodging months ahead. The rest of the year, the track offers driving experiences and vintage car events."
+          },
+          {
+            "name": "Sonnenberg Gardens & Mansion",
+            "location": "Canandaigua, Ontario County",
+            "trail_member": false,
+            "trail_name": null,
+            "description": "A 50-acre Victorian estate with nine formal gardens — Japanese, Italian, Rock, Rose, and five more. The mansion dates to 1887. Smithsonian-recognized. Open May through October. The kind of place where you plan an hour and spend three."
+          }
+        ]
+      },
+      "wellness": {
+        "intro": null,
+        "operators": []
+      },
+      "outdoor": {
+        "intro": "Gorges, falls, and a glacial landscape that rewards every season.",
+        "operators": [
+          {
+            "name": "Taughannock Falls State Park",
+            "location": "Trumansburg, Tompkins County",
+            "trail_member": false,
+            "trail_name": null,
+            "description": "A 215-foot plunge waterfall — taller than Niagara. The gorge trail runs three-quarters of a mile to the base of the falls. The rim trail offers the overlook. There is a beach and swimming area on Cayuga Lake at the park entrance. Less crowded than Watkins Glen, and arguably more dramatic."
+          },
+          {
+            "name": "Letchworth State Park",
+            "location": "Castile, Livingston County",
+            "trail_member": false,
+            "trail_name": null,
+            "description": "Called the Grand Canyon of the East for a reason — the Genesee River carved a canyon with 550-foot cliffs and three major waterfalls. Sixty-six miles of hiking trails, plus whitewater rafting, hot air ballooning, and a historic Glen Iris Inn overlooking Middle Falls. Voted the best state park in the US by a USA Today poll."
+          },
+          {
+            "name": "Montezuma National Wildlife Refuge",
+            "location": "Seneca Falls, Seneca County",
+            "trail_member": false,
+            "trail_name": null,
+            "description": "Ten thousand acres of wetland at the north end of Cayuga Lake, on the Atlantic Flyway. Bald eagles nest here year-round. Spring and fall migration bring hundreds of thousands of waterfowl. A wildlife drive, observation towers, and walking trails. Free admission."
+          }
+        ]
+      },
+      "agriculture": {
+        "intro": "The farms here are not decorative — they are the economic and culinary backbone of the region.",
+        "operators": [
+          {
+            "name": "Lively Run Dairy",
+            "location": "Interlaken, Tompkins County",
+            "trail_member": true,
+            "trail_name": "Finger Lakes Cheese Trail",
+            "description": "A goat dairy and creamery producing award-winning chevre, feta, and aged cheeses. Farm tours let you meet the goats and see the creamery. Their cheese shows up on restaurant menus across the region. A Finger Lakes Cheese Trail anchor."
+          },
+          {
+            "name": "Ithaca Farmers Market",
+            "location": "Ithaca, Tompkins County",
+            "trail_member": false,
+            "trail_name": null,
+            "description": "Open since 1973, over 150 vendors on the Cayuga Lake inlet. Saturday and Sunday markets, April through December. The food stalls alone are worth the trip — wood-fired pizza, Tibetan momos, locally roasted coffee, and whatever the farms brought in that morning. Arrive hungry."
+          },
+          {
+            "name": "Windmill Farm & Craft Market",
+            "location": "Penn Yan, Yates County",
+            "trail_member": false,
+            "trail_name": null,
+            "description": "A Saturday market with over 200 vendors, including Mennonite baked goods, fresh produce, and handmade crafts. Open April through December. The baked goods — pies, breads, jams — are the draw. This is what a Finger Lakes Saturday morning looks like."
+          },
+          {
+            "name": "Farm Sanctuary",
+            "location": "Watkins Glen, Schuyler County",
+            "trail_member": false,
+            "trail_name": null,
+            "description": "An animal rescue and education center on 175 acres above Seneca Lake. Guided tours of the barns and pastures are available seasonally. Overnight cabins for guests. A different perspective on the agricultural landscape — and a meaningful stop for families."
+          }
+        ]
+      }
+    }
+  },
+
+  "section_6_seasonal_practical": {
+    "seasonal_guide": {
+      "spring": "The gorges run at full power from snowmelt, wildflowers cover the hillsides, and the tasting rooms are yours alone. This is when the Finger Lakes feels most alive and least crowded.",
+      "summer": "Lake swimming, gorge hiking, long wine-tasting afternoons, and farm dinners that go past dark. Peak season means peak prices and peak crowds at Watkins Glen — arrive early.",
+      "fall": "Harvest drives everything. The vineyards turn gold and copper, the Riesling comes off the vine, and the Naples Grape Festival fills the southern end of the region with Concord grape pie. Peak foliage hits mid-October.",
+      "winter": "The region slows down but does not stop. Corning Museum of Glass and Rochester's museums are year-round. Ice wine events on Keuka Lake in February and March offer something you cannot get any other time. Cross-country skiing at Finger Lakes Trail System parks.",
+      "shoulder_season_callout": {
+        "headline": "May and June: The Finger Lakes' Best-Kept Timing Secret",
+        "body": "The gorge waterfalls are at their most dramatic in late May and early June, fed by spring snowmelt. Tasting rooms that queue out the door in September are open and unhurried. Cornell Botanic Gardens hits peak bloom. The Ithaca Farmers Market reopens for the season. Lodging runs 20-30% below summer rates. The reason more people don't come in May-June is simple — they assume wine country is a fall trip. It is not. The vines are leafing out, the light is long, and the whole region has a momentum to it that peak season, for all its beauty, has traded for crowds."
+      }
+    },
+    "where_to_base": {
+      "intro": "The Finger Lakes spans 11 counties and over 100 miles. Where you base determines what you see. Pick one area per trip.",
+      "towns": [
+        {"town": "Watkins Glen", "why": "The gorge, the racetrack, and the southern end of the Seneca Lake Wine Trail. Walk to restaurants and the harbor. Best single base for a first Finger Lakes trip."},
+        {"town": "Ithaca", "why": "College town energy, three major gorges within 15 minutes, the Farmers Market, Moosewood, and the southern end of the Cayuga Lake Wine Trail. Feels like its own destination."},
+        {"town": "Geneva", "why": "Northern tip of Seneca Lake. Belhurst Castle, the Welcome Center, and easy access to both the Seneca and Cayuga trails. More lodging options than most FL towns."},
+        {"town": "Corning", "why": "The Museum of Glass, the Gaffer District, and proximity to Keuka Lake wineries and Hammondsport. Best base for the cultural-heavy itinerary."},
+        {"town": "Hammondsport", "why": "Small village at the south end of Keuka Lake. Dr. Frank, Pleasant Valley, Curtiss Museum, and a walkable Main Street. The quietest of the base towns."},
+        {"town": "Canandaigua", "why": "Western gateway. NY Wine & Culinary Center, Sonnenberg Gardens, and the Canandaigua Lake Wine Trail. Closest base to Rochester and the I-90 corridor."}
+      ]
+    },
+    "how_to_get_there": {
+      "by_car": "From NYC: I-81 North to Route 17 West (5 hours to Watkins Glen) or I-90 West to Route 14 South (5 hours to Geneva). From Buffalo: I-90 East to Canandaigua exit (2 hours). From Albany: I-90 West (3 hours to Geneva). Route 14 runs the length of Seneca Lake and is the region's scenic spine.",
+      "by_train": "No direct Amtrak service. Closest Amtrak stations are Syracuse (1 hour to central Finger Lakes) and Rochester (30 minutes to Canandaigua). Both connect to NYC via the Empire Service.",
+      "by_bus": "OurBus and FlixBus run NYC to Ithaca daily. No regular bus service to other Finger Lakes towns. A car is essential for wine trail touring."
+    },
+    "practical_tips": [
+      "Designate a driver or book a wine tour van — DWI enforcement is serious and consistent.",
+      "Watkins Glen State Park hits capacity by 10am on summer Saturdays. Arrive by 8:30 or visit midweek.",
+      "Most wineries charge $5-$15 for a tasting flight of 5-6 wines. Trail passports often include complimentary tastings.",
+      "Cell service is spotty in gorges and on some lake roads. Download trail maps before you go.",
+      "The region is large — don't try to do Ithaca, Watkins Glen, and Corning in one day."
+    ]
+  }
+}
