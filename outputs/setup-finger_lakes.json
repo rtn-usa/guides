@@ -1,0 +1,189 @@
+{
+  "region": "Finger Lakes",
+  "region_key": "finger_lakes",
+  "generated": "2026-03-13",
+  "counties": [
+    {
+      "county": "Cayuga",
+      "dmo_name": "Cayuga County Tourism",
+      "dmo_url": "https://www.tourcayuga.com",
+      "has_active_trail": null,
+      "trail_names": []
+    },
+    {
+      "county": "Chemung",
+      "dmo_name": "Chemung County Tourism",
+      "dmo_url": "https://www.chemungchamber.org",
+      "has_active_trail": null,
+      "trail_names": []
+    },
+    {
+      "county": "Livingston",
+      "dmo_name": "Livingston County Tourism",
+      "dmo_url": "https://www.livingstoncounty.us/tourism",
+      "has_active_trail": null,
+      "trail_names": []
+    },
+    {
+      "county": "Monroe",
+      "dmo_name": "Visit Rochester",
+      "dmo_url": "https://www.visitrochester.com",
+      "has_active_trail": null,
+      "trail_names": []
+    },
+    {
+      "county": "Ontario",
+      "dmo_name": "Ontario County Tourism",
+      "dmo_url": "https://www.visitfingerlakes.com",
+      "has_active_trail": null,
+      "trail_names": []
+    },
+    {
+      "county": "Schuyler",
+      "dmo_name": "Schuyler County Tourism",
+      "dmo_url": "https://www.schuylerny.com",
+      "has_active_trail": null,
+      "trail_names": []
+    },
+    {
+      "county": "Seneca",
+      "dmo_name": "Seneca County Tourism",
+      "dmo_url": "https://www.senecachamber.org",
+      "has_active_trail": null,
+      "trail_names": []
+    },
+    {
+      "county": "Steuben",
+      "dmo_name": "Steuben County Tourism",
+      "dmo_url": "https://www.corningfingerlakes.com",
+      "has_active_trail": null,
+      "trail_names": []
+    },
+    {
+      "county": "Tompkins",
+      "dmo_name": "Tompkins County Tourism",
+      "dmo_url": "https://www.visitithaca.com",
+      "has_active_trail": null,
+      "trail_names": []
+    },
+    {
+      "county": "Wayne",
+      "dmo_name": "Wayne County Tourism",
+      "dmo_url": "https://www.waynecounty.com",
+      "has_active_trail": null,
+      "trail_names": []
+    },
+    {
+      "county": "Yates",
+      "dmo_name": "Yates County Tourism",
+      "dmo_url": "https://www.yatescounty.org",
+      "has_active_trail": null,
+      "trail_names": []
+    }
+  ],
+  "trail_map": [
+    {
+      "trail_name": "Finger Lakes Wine Trail",
+      "counties_served": [],
+      "has_passport": null,
+      "trail_url": null,
+      "member_count": null
+    },
+    {
+      "trail_name": "Seneca Lake Wine Trail",
+      "counties_served": [],
+      "has_passport": null,
+      "trail_url": null,
+      "member_count": null
+    },
+    {
+      "trail_name": "Cayuga Lake Wine Trail",
+      "counties_served": [],
+      "has_passport": null,
+      "trail_url": null,
+      "member_count": null
+    },
+    {
+      "trail_name": "Keuka Lake Wine Trail",
+      "counties_served": [],
+      "has_passport": null,
+      "trail_url": null,
+      "member_count": null
+    },
+    {
+      "trail_name": "Canandaigua Lake Wine Trail",
+      "counties_served": [],
+      "has_passport": null,
+      "trail_url": null,
+      "member_count": null
+    },
+    {
+      "trail_name": "Finger Lakes Beer Trail",
+      "counties_served": [],
+      "has_passport": null,
+      "trail_url": null,
+      "member_count": null
+    },
+    {
+      "trail_name": "Finger Lakes Cider Trail",
+      "counties_served": [],
+      "has_passport": null,
+      "trail_url": null,
+      "member_count": null
+    },
+    {
+      "trail_name": "Finger Lakes Cheese Trail",
+      "counties_served": [],
+      "has_passport": null,
+      "trail_url": null,
+      "member_count": null
+    },
+    {
+      "trail_name": "Finger Lakes Farm Trail",
+      "counties_served": [],
+      "has_passport": null,
+      "trail_url": null,
+      "member_count": null
+    },
+    {
+      "trail_name": "Ithaca Farmers Market Trail",
+      "counties_served": [],
+      "has_passport": null,
+      "trail_url": null,
+      "member_count": null
+    },
+    {
+      "trail_name": "Corning Museum Glass Trail",
+      "counties_served": [],
+      "has_passport": null,
+      "trail_url": null,
+      "member_count": null
+    },
+    {
+      "trail_name": "Watkins Glen Trail",
+      "counties_served": [],
+      "has_passport": null,
+      "trail_url": null,
+      "member_count": null
+    }
+  ],
+  "trail_gaps": {
+    "note": "Claude: research each county above and flag any with no active tourism trail \u2014 these are RTN's primary partnership opportunities.",
+    "gaps_identified": []
+  },
+  "metro_proximity": {
+    "NYC": "5 hr",
+    "Albany": "3 hr",
+    "Buffalo": "2 hr",
+    "Toronto": "3 hr",
+    "Philadelphia": "5.5 hr"
+  },
+  "key_anchors": [
+    "Watkins Glen",
+    "Seneca Falls",
+    "Ithaca",
+    "Canandaigua",
+    "Penn Yan",
+    "Hammondsport"
+  ]
+}

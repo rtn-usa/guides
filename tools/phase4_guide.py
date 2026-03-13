@@ -1,462 +1,585 @@
 #!/usr/bin/env python3
 """
-Phase 4 — Guide Creation
-
-Generates the content template and assembles the final DOCX guide.
+Phase 4: Guide Generator
+Takes a completed Phase 3 analysis JSON and a content JSON written by Claude,
+then assembles the final Regional Guide as a Word document.
 
 Usage:
-    python tools/phase4_guide.py --content-template > outputs/content-<region>.json
-    python tools/phase4_guide.py --region <key> \\
-        --analysis outputs/analysis-<region>.json \\
-        --content outputs/content-<region>.json
+  python tools/phase4_guide.py --region finger_lakes --analysis outputs/analysis-finger_lakes.json
+  python tools/phase4_guide.py --content-template  # Print the content JSON template Claude fills
 
-Six sections:
-1. Hero Narrative (~150 words)
-2. Region at a Glance
-3. Why Come Here
-4. Trail Network
-5. Featured Operators
-6. Seasonal + Practical
+The content JSON (Claude writes this) contains all six guide sections as text.
+This script assembles it into a properly formatted Word doc.
 """
 
-import argparse
 import json
-import os
+import argparse
 import sys
+from pathlib import Path
+from datetime import date
+
+OUTPUTS_PATH = Path(__file__).parent.parent / "outputs"
+DATA_PATH = Path(__file__).parent.parent / "data" / "ny_regions.json"
 
 try:
     from docx import Document
-    from docx.shared import Inches, Pt, Cm, RGBColor
+    from docx.shared import Pt, Inches, RGBColor, Cm
     from docx.enum.text import WD_ALIGN_PARAGRAPH
-    from docx.enum.section import WD_ORIENT
+    from docx.enum.style import WD_STYLE_TYPE
+    from docx.oxml.ns import qn
+    from docx.oxml import OxmlElement
 except ImportError:
-    print("Error: python-docx is required. Install with: pip install python-docx", file=sys.stderr)
+    print("ERROR: python-docx not installed. Run: pip install python-docx --break-system-packages")
     sys.exit(1)
 
-REGIONS_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "ny_regions.json")
-OUTPUTS_DIR = os.path.join(os.path.dirname(__file__), "..", "outputs")
+# ── Brand colors (Upstate palette) ────────────────────────────────────────────
+COLOR_DEEP_GREEN  = RGBColor(0x1A, 0x3C, 0x2B)  # Primary brand dark green
+COLOR_WARM_BROWN  = RGBColor(0x6B, 0x45, 0x26)  # Accent warm brown
+COLOR_LIGHT_SAGE  = RGBColor(0xE8, 0xF0, 0xE3)  # Background tints
+COLOR_DARK_TEXT   = RGBColor(0x1A, 0x1A, 0x18)  # Body text
+COLOR_MEDIUM_GREY = RGBColor(0x6B, 0x6B, 0x6B)  # Subheads, captions
+COLOR_CREAM       = RGBColor(0xFB, 0xF8, 0xF2)  # Pull quote bg
 
-FORBIDDEN_PHRASES = [
-    "hidden gem", "charming", "quaint", "nestled", "breathtaking",
-    "rustic charm", "off the beaten path", "world-class", "scenic byway",
-    "there's something for everyone", "come experience", "immerse yourself",
-    "a must-see", "you won't be disappointed", "explore all that upstate has to offer",
-    "a true gem of new york"
-]
+CONTENT_TEMPLATE = {
+    "_instructions": "Fill every section below with Upstate brand voice content. Read /mnt/skills/user/upstate-brand-voice/SKILL.md before writing. Run the Upstate Test on every paragraph.",
+    "region": "Finger Lakes",
+    "guide_version": "1.0",
+    "authored_date": str(date.today()),
 
+    "section_1_hero": {
+        "_instructions": "150 words. Mood first, facts second. No forbidden phrases. Lead with feeling — what does it FEEL like to be here?",
+        "headline": None,
+        "body": None
+    },
 
-def print_content_template():
-    """Print the content JSON template Claude should fill."""
-    template = {
-        "section_1_hero": {
-            "title": "REGION_NAME",
-            "subtitle": "BRAND_TAGLINE",
-            "narrative": "~150 words. Mood and feeling FIRST. No place names in the first sentence. Example register: 'The light changes somewhere around...' or 'There's a moment, usually on the second day...'"
+    "section_2_at_a_glance": {
+        "_instructions": "Factual snapshot. Drawn directly from the analysis JSON.",
+        "counties": [],
+        "trail_count": None,
+        "active_trails": [],
+        "seasonal_windows": {
+            "peak": None,
+            "shoulder": None,
+            "off_season": None
         },
-        "section_2_glance": {
-            "counties": ["County1", "County2"],
-            "county_count": 0,
-            "trail_count": 0,
-            "drive_times": {
-                "from_nyc": "",
-                "from_albany": "",
-                "from_other": ""
-            },
-            "base_towns": ["Town1", "Town2"],
-            "amtrak": "Service description or 'No direct service'",
-            "quick_facts": ["Fact 1", "Fact 2", "Fact 3"]
-        },
-        "section_3_why": {
-            "paragraphs": [
-                "Paragraph 1: The UVP in human language",
-                "Paragraph 2: What the trail network adds",
-                "Paragraph 3: End with something that makes you want to look up a route"
-            ]
-        },
-        "section_4_trails": [
+        "drive_times": {},
+        "base_towns": []
+    },
+
+    "section_3_why_come": {
+        "_instructions": "2-3 paragraphs. The UVP distilled. What's irreplaceable about this region? Include RTN's collaborative angle — what the trail network adds that a single destination can't.",
+        "paragraphs": []
+    },
+
+    "section_4_trail_network": {
+        "_instructions": "One entry per active trail. Description = 2-3 sentences in Upstate voice. Cross-trail callout = where this trail connects to others.",
+        "intro": None,
+        "trails": [
             {
-                "name": "Trail Name",
-                "type": "wine | craft_beverage | food | outdoor | heritage | culture | scenic | agriculture",
-                "description": "2-3 sentences in Upstate voice. Specific, factual, no embellishment.",
-                "passport": True,
-                "cross_trail_callout": "Optional: note where this trail connects with another"
+                "trail_name": None,
+                "description": None,
+                "passport_available": None,
+                "cross_trail_callout": None,
+                "trail_url": None
             }
-        ],
-        "section_5_operators": {
-            "food_drink": [
-                {
-                    "name": "Operator Name",
-                    "location": "Town, County",
-                    "trail_member": True,
-                    "trail_name": "Trail Name or null",
-                    "description": "What makes this one worth the drive. Specific, factual."
-                }
-            ],
-            "culture_heritage": [],
-            "attractions": [],
-            "wellness": [],
-            "outdoor": [],
-            "agriculture": []
-        },
-        "section_6_seasonal": {
-            "seasons": {
-                "spring": "One sharp sentence",
-                "summer": "One sharp sentence",
-                "fall": "One sharp sentence",
-                "winter": "One sharp sentence"
+        ]
+    },
+
+    "section_5_featured_operators": {
+        "_instructions": "Curated by category — NOT a directory dump. Trail members get priority. 3-5 operators per category, written in full Upstate listing voice. Include what makes each one worth the drive.",
+        "intro": None,
+        "categories": {
+            "food_drink": {
+                "intro": None,
+                "operators": []
             },
-            "shoulder_callout": {
-                "title": "SHOULDER SEASON SPOTLIGHT",
-                "months": "May-June or September-October",
-                "content": "Why this is the time to come. Upstate's editorial signature."
+            "culture_heritage": {
+                "intro": None,
+                "operators": []
             },
-            "where_to_base": [
-                {
-                    "town": "Town Name",
-                    "why": "Why this town works as a base"
-                }
-            ],
-            "getting_here": {
-                "by_car": "Route names and drive descriptions",
-                "by_train": "Amtrak service details or 'No direct service'",
-                "by_bus": "Bus options if any"
+            "attractions": {
+                "intro": None,
+                "operators": []
+            },
+            "wellness": {
+                "intro": None,
+                "operators": []
+            },
+            "outdoor": {
+                "intro": None,
+                "operators": []
+            },
+            "agriculture": {
+                "intro": None,
+                "operators": []
             }
         }
+    },
+
+    "section_6_seasonal_practical": {
+        "_instructions": "When to go, where to base, how to get there. Shoulder season gets its own callout box — it's the editorial priority.",
+        "seasonal_guide": {
+            "spring": None,
+            "summer": None,
+            "fall": None,
+            "winter": None,
+            "shoulder_season_callout": {
+                "headline": None,
+                "body": None
+            }
+        },
+        "where_to_base": {
+            "intro": None,
+            "towns": []
+        },
+        "how_to_get_there": {
+            "by_car": None,
+            "by_train": None,
+            "by_bus": None
+        },
+        "practical_tips": []
     }
-    print(json.dumps(template, indent=2))
+}
 
 
-def load_regions():
-    with open(REGIONS_FILE, "r") as f:
-        return json.load(f)
+def set_paragraph_color(paragraph, color):
+    for run in paragraph.runs:
+        run.font.color.rgb = color
 
 
-def check_voice(text):
-    """Check text against forbidden phrases."""
-    violations = []
-    text_lower = text.lower()
-    for phrase in FORBIDDEN_PHRASES:
-        if phrase in text_lower:
-            violations.append(phrase)
-    if "!" in text:
-        violations.append("exclamation mark")
-    return violations
+def add_section_divider(doc):
+    p = doc.add_paragraph()
+    p.paragraph_format.space_before = Pt(6)
+    p.paragraph_format.space_after = Pt(6)
+    run = p.add_run("─" * 60)
+    run.font.color.rgb = COLOR_MEDIUM_GREY
+    run.font.size = Pt(8)
 
 
-def check_all_content(content):
-    """Check all content sections for voice violations."""
-    violations = []
+def add_callout_box(doc, headline, body, color=None):
+    """Simulated callout box using bordered paragraph."""
+    p = doc.add_paragraph()
+    p.paragraph_format.left_indent = Inches(0.3)
+    p.paragraph_format.right_indent = Inches(0.3)
+    p.paragraph_format.space_before = Pt(12)
+    p.paragraph_format.space_after = Pt(12)
 
-    def walk(obj, path=""):
-        if isinstance(obj, str):
-            v = check_voice(obj)
-            if v:
-                violations.append((path, v))
-        elif isinstance(obj, dict):
-            for k, val in obj.items():
-                walk(val, f"{path}.{k}" if path else k)
-        elif isinstance(obj, list):
-            for i, item in enumerate(obj):
-                walk(item, f"{path}[{i}]")
+    if headline:
+        run = p.add_run(f"▸ {headline}\n")
+        run.bold = True
+        run.font.color.rgb = color or COLOR_DEEP_GREEN
+        run.font.size = Pt(11)
 
-    walk(content)
-    return violations
-
-
-def add_heading(doc, text, level=1):
-    """Add a styled heading."""
-    heading = doc.add_heading(text, level=level)
-    for run in heading.runs:
-        run.font.color.rgb = RGBColor(0x2E, 0x40, 0x57)
-    return heading
+    if body:
+        run = p.add_run(body)
+        run.font.size = Pt(10)
+        run.font.color.rgb = COLOR_DARK_TEXT
 
 
-def add_body(doc, text):
-    """Add body text paragraph."""
-    para = doc.add_paragraph(text)
-    para.style.font.size = Pt(11)
-    para.style.font.name = "Georgia"
-    para.paragraph_format.space_after = Pt(8)
-    para.paragraph_format.line_spacing = 1.4
-    return para
-
-
-def build_guide(region_key, analysis_path, content_path):
-    """Assemble the final DOCX guide."""
-    data = load_regions()
-    if region_key not in data["regions"]:
-        print(f"Error: Region '{region_key}' not found.", file=sys.stderr)
-        sys.exit(1)
-
-    region = data["regions"][region_key]
-
-    # Load analysis and content
-    with open(analysis_path, "r") as f:
-        analysis = json.load(f)
-    with open(content_path, "r") as f:
-        content = json.load(f)
-
-    # Voice check
-    violations = check_all_content(content)
-    if violations:
-        print("VOICE VIOLATIONS DETECTED:", file=sys.stderr)
-        for path, phrases in violations:
-            print(f"  {path}: {', '.join(phrases)}", file=sys.stderr)
-        print(f"\nTotal violations: {len(violations)}", file=sys.stderr)
-        print("Fix these before generating the guide.", file=sys.stderr)
-        sys.exit(1)
-
-    # Build DOCX
+def build_guide(content, analysis, output_path):
     doc = Document()
 
-    # Page setup
+    # ── Page margins ──────────────────────────────────────────────────────────
     section = doc.sections[0]
-    section.page_width = Cm(21)
-    section.page_height = Cm(29.7)
-    section.top_margin = Cm(2.5)
-    section.bottom_margin = Cm(2.5)
-    section.left_margin = Cm(2.5)
-    section.right_margin = Cm(2.5)
+    section.top_margin = Inches(1)
+    section.bottom_margin = Inches(1)
+    section.left_margin = Inches(1.15)
+    section.right_margin = Inches(1.15)
 
-    # --- Section 1: Hero ---
+    region = content.get("region", "Unknown Region")
+
+    # ════════════════════════════════════════════════════════════════════════
+    # HEADER
+    # ════════════════════════════════════════════════════════════════════════
+    brand_line = doc.add_paragraph()
+    brand_line.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    brand_run = brand_line.add_run("UPSTATE")
+    brand_run.font.color.rgb = COLOR_DEEP_GREEN
+    brand_run.font.bold = True
+    brand_run.font.size = Pt(9)
+    brand_run.font.name = "Arial"
+
+    tagline_run = brand_line.add_run("  |  Regional Guide Series")
+    tagline_run.font.color.rgb = COLOR_MEDIUM_GREY
+    tagline_run.font.size = Pt(9)
+    tagline_run.font.name = "Arial"
+
+    add_section_divider(doc)
+
+    # ── SECTION 1: Hero ──────────────────────────────────────────────────────
     hero = content.get("section_1_hero", {})
-    title = doc.add_heading(hero.get("title", region["name"]), level=0)
-    for run in title.runs:
-        run.font.color.rgb = RGBColor(0x2E, 0x40, 0x57)
-        run.font.size = Pt(28)
+    headline = hero.get("headline") or f"Go Further {region}"
+    hero_body = hero.get("body") or "[Hero narrative — Claude to write. ~150 words. Mood first.]"
 
-    if hero.get("subtitle"):
-        subtitle = doc.add_paragraph(hero["subtitle"])
-        subtitle.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        for run in subtitle.runs:
-            run.font.size = Pt(14)
-            run.font.color.rgb = RGBColor(0x6B, 0x70, 0x5C)
-            run.italic = True
+    h1 = doc.add_paragraph()
+    h1.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    h1_run = h1.add_run(headline)
+    h1_run.font.size = Pt(28)
+    h1_run.font.bold = True
+    h1_run.font.color.rgb = COLOR_DEEP_GREEN
+    h1_run.font.name = "Georgia"
+    h1.paragraph_format.space_after = Pt(14)
 
-    doc.add_paragraph()  # spacer
+    body_p = doc.add_paragraph()
+    body_run = body_p.add_run(hero_body)
+    body_run.font.size = Pt(11)
+    body_run.font.color.rgb = COLOR_DARK_TEXT
+    body_run.font.name = "Georgia"
+    body_p.paragraph_format.space_after = Pt(20)
+    body_p.paragraph_format.line_spacing = Pt(16)
 
-    if hero.get("narrative"):
-        add_body(doc, hero["narrative"])
+    add_section_divider(doc)
 
-    doc.add_page_break()
+    # ── SECTION 2: At a Glance ───────────────────────────────────────────────
+    glance = content.get("section_2_at_a_glance", {})
 
-    # --- Section 2: Region at a Glance ---
-    add_heading(doc, "Region at a Glance", level=1)
-    glance = content.get("section_2_glance", {})
+    s2_head = doc.add_paragraph()
+    s2_run = s2_head.add_run("Region at a Glance")
+    s2_run.font.size = Pt(13)
+    s2_run.font.bold = True
+    s2_run.font.color.rgb = COLOR_WARM_BROWN
+    s2_run.font.name = "Arial"
+    s2_head.paragraph_format.space_before = Pt(16)
+    s2_head.paragraph_format.space_after = Pt(8)
 
-    glance_items = []
+    # Quick-facts table
+    facts = []
     if glance.get("counties"):
-        glance_items.append(f"Counties: {', '.join(glance['counties'])} ({glance.get('county_count', len(glance['counties']))})")
+        facts.append(("Counties", ", ".join(glance["counties"])))
     if glance.get("trail_count"):
-        glance_items.append(f"Active Trails: {glance['trail_count']}")
+        facts.append(("Active trails", str(glance["trail_count"])))
+    if glance.get("seasonal_windows", {}).get("peak"):
+        facts.append(("Peak season", glance["seasonal_windows"]["peak"]))
+    if glance.get("seasonal_windows", {}).get("shoulder"):
+        facts.append(("Shoulder season", glance["seasonal_windows"]["shoulder"]))
     if glance.get("base_towns"):
-        glance_items.append(f"Base Towns: {', '.join(glance['base_towns'])}")
+        facts.append(("Best base towns", ", ".join(glance["base_towns"])))
 
-    drive = glance.get("drive_times", {})
-    for key, val in drive.items():
-        if val:
-            label = key.replace("from_", "From ").replace("_", " ").title()
-            glance_items.append(f"{label}: {val}")
+    if glance.get("drive_times"):
+        for city, time in glance["drive_times"].items():
+            facts.append((f"From {city}", time))
 
-    if glance.get("amtrak"):
-        glance_items.append(f"Amtrak: {glance['amtrak']}")
+    if facts:
+        tbl = doc.add_table(rows=len(facts), cols=2)
+        tbl.style = "Table Grid"
+        for i, (label, value) in enumerate(facts):
+            tbl.cell(i, 0).text = label
+            tbl.cell(i, 1).text = value
+            for cell in tbl.row_cells(i):
+                for p in cell.paragraphs:
+                    for run in p.runs:
+                        run.font.size = Pt(10)
+                        run.font.name = "Arial"
+    else:
+        p = doc.add_paragraph("[At-a-glance data — Claude to complete from analysis JSON]")
+        p.runs[0].font.color.rgb = COLOR_MEDIUM_GREY
 
-    for item in glance_items:
-        doc.add_paragraph(item, style="List Bullet")
+    doc.add_paragraph()
+    add_section_divider(doc)
 
-    if glance.get("quick_facts"):
-        doc.add_paragraph()
-        add_heading(doc, "Quick Facts", level=2)
-        for fact in glance["quick_facts"]:
-            doc.add_paragraph(fact, style="List Bullet")
+    # ── SECTION 3: Why Come Here ─────────────────────────────────────────────
+    s3_head = doc.add_paragraph()
+    s3_run = s3_head.add_run("Why Come Here")
+    s3_run.font.size = Pt(13)
+    s3_run.font.bold = True
+    s3_run.font.color.rgb = COLOR_WARM_BROWN
+    s3_run.font.name = "Arial"
+    s3_head.paragraph_format.space_before = Pt(16)
+    s3_head.paragraph_format.space_after = Pt(8)
 
-    doc.add_page_break()
+    why_paragraphs = content.get("section_3_why_come", {}).get("paragraphs", [])
+    if why_paragraphs:
+        for para_text in why_paragraphs:
+            p = doc.add_paragraph(para_text)
+            p.paragraph_format.space_after = Pt(10)
+            for run in p.runs:
+                run.font.size = Pt(11)
+                run.font.name = "Georgia"
+                run.font.color.rgb = COLOR_DARK_TEXT
+    else:
+        p = doc.add_paragraph("[Why come here — 2-3 paragraphs. UVP + RTN collaborative angle.]")
+        p.runs[0].font.color.rgb = COLOR_MEDIUM_GREY
 
-    # --- Section 3: Why Come Here ---
-    add_heading(doc, "Why Come Here", level=1)
-    why = content.get("section_3_why", {})
-    for para_text in why.get("paragraphs", []):
-        add_body(doc, para_text)
+    add_section_divider(doc)
 
-    doc.add_page_break()
+    # ── SECTION 4: Trail Network ─────────────────────────────────────────────
+    s4_head = doc.add_paragraph()
+    s4_run = s4_head.add_run("Trail Network")
+    s4_run.font.size = Pt(13)
+    s4_run.font.bold = True
+    s4_run.font.color.rgb = COLOR_WARM_BROWN
+    s4_run.font.name = "Arial"
+    s4_head.paragraph_format.space_before = Pt(16)
+    s4_head.paragraph_format.space_after = Pt(8)
 
-    # --- Section 4: Trail Network ---
-    add_heading(doc, "Trail Network", level=1)
-    trails = content.get("section_4_trails", [])
+    trail_intro = content.get("section_4_trail_network", {}).get("intro")
+    if trail_intro:
+        p = doc.add_paragraph(trail_intro)
+        p.paragraph_format.space_after = Pt(10)
+        for run in p.runs:
+            run.font.size = Pt(11)
+            run.font.name = "Georgia"
+
+    trails = content.get("section_4_trail_network", {}).get("trails", [])
     for trail in trails:
-        trail_heading = trail.get("name", "Unknown Trail")
-        if trail.get("passport"):
-            trail_heading += " [Passport Available]"
-        add_heading(doc, trail_heading, level=2)
+        name = trail.get("trail_name", "")
+        desc = trail.get("description", "")
+        passport = trail.get("passport_available")
+        cross = trail.get("cross_trail_callout")
 
-        trail_type = trail.get("type", "")
-        if trail_type:
-            type_para = doc.add_paragraph(f"Type: {trail_type}")
-            for run in type_para.runs:
+        trail_head = doc.add_paragraph()
+        trail_head.paragraph_format.space_before = Pt(12)
+        tn_run = trail_head.add_run(name)
+        tn_run.font.bold = True
+        tn_run.font.size = Pt(11)
+        tn_run.font.color.rgb = COLOR_DEEP_GREEN
+        tn_run.font.name = "Arial"
+        if passport:
+            pp_run = trail_head.add_run("  •  Passport Program")
+            pp_run.font.size = Pt(9)
+            pp_run.font.color.rgb = COLOR_WARM_BROWN
+            pp_run.font.name = "Arial"
+
+        if desc:
+            p = doc.add_paragraph(desc)
+            p.paragraph_format.space_after = Pt(4)
+            for run in p.runs:
+                run.font.size = Pt(10)
+                run.font.name = "Georgia"
+
+        if cross:
+            p = doc.add_paragraph(f"→ Cross-trail: {cross}")
+            for run in p.runs:
                 run.font.size = Pt(9)
-                run.font.color.rgb = RGBColor(0x6B, 0x70, 0x5C)
+                run.font.italic = True
+                run.font.color.rgb = COLOR_MEDIUM_GREY
 
-        if trail.get("description"):
-            add_body(doc, trail["description"])
+    if not trails:
+        p = doc.add_paragraph("[Trail network — one entry per active trail in the region]")
+        p.runs[0].font.color.rgb = COLOR_MEDIUM_GREY
 
-        if trail.get("cross_trail_callout"):
-            callout = doc.add_paragraph(f"Cross-trail: {trail['cross_trail_callout']}")
-            for run in callout.runs:
-                run.italic = True
-                run.font.color.rgb = RGBColor(0x1B, 0x5E, 0x20)
+    add_section_divider(doc)
 
-    doc.add_page_break()
+    # ── SECTION 5: Featured Operators ────────────────────────────────────────
+    s5_head = doc.add_paragraph()
+    s5_run = s5_head.add_run("Featured Operators")
+    s5_run.font.size = Pt(13)
+    s5_run.font.bold = True
+    s5_run.font.color.rgb = COLOR_WARM_BROWN
+    s5_run.font.name = "Arial"
+    s5_head.paragraph_format.space_before = Pt(16)
+    s5_head.paragraph_format.space_after = Pt(8)
 
-    # --- Section 5: Featured Operators ---
-    add_heading(doc, "Featured Operators", level=1)
-    operators = content.get("section_5_operators", {})
-    category_labels = {
-        "food_drink": "Food & Drink",
+    op_intro = content.get("section_5_featured_operators", {}).get("intro")
+    if op_intro:
+        p = doc.add_paragraph(op_intro)
+        for run in p.runs:
+            run.font.size = Pt(11)
+            run.font.name = "Georgia"
+
+    CATEGORY_DISPLAY = {
+        "food_drink":       "Food & Drink",
         "culture_heritage": "Culture & Heritage",
-        "attractions": "Attractions",
-        "wellness": "Wellness",
-        "outdoor": "Outdoor",
-        "agriculture": "Agriculture"
+        "attractions":      "Attractions",
+        "wellness":         "Wellness",
+        "outdoor":          "Outdoor",
+        "agriculture":      "Agriculture",
     }
 
-    for cat_key, cat_label in category_labels.items():
-        ops = operators.get(cat_key, [])
-        if not ops:
+    categories = content.get("section_5_featured_operators", {}).get("categories", {})
+    for cat_key, cat_display in CATEGORY_DISPLAY.items():
+        cat_data = categories.get(cat_key, {})
+        operators = cat_data.get("operators", [])
+        if not operators:
             continue
 
-        add_heading(doc, cat_label, level=2)
-        for op in ops:
-            name = op.get("name", "Unknown")
-            location = op.get("location", "")
-            trail_badge = ""
-            if op.get("trail_member") and op.get("trail_name"):
-                trail_badge = f" — {op['trail_name']} member"
+        cat_head = doc.add_paragraph()
+        cat_head.paragraph_format.space_before = Pt(14)
+        cat_run = cat_head.add_run(cat_display)
+        cat_run.font.size = Pt(12)
+        cat_run.font.bold = True
+        cat_run.font.color.rgb = COLOR_DEEP_GREEN
+        cat_run.font.name = "Arial"
 
-            op_para = doc.add_paragraph()
-            run_name = op_para.add_run(name)
-            run_name.bold = True
-            run_name.font.size = Pt(11)
+        cat_intro_text = cat_data.get("intro")
+        if cat_intro_text:
+            p = doc.add_paragraph(cat_intro_text)
+            p.paragraph_format.space_after = Pt(8)
+            for run in p.runs:
+                run.font.size = Pt(10)
+                run.font.italic = True
+                run.font.name = "Georgia"
 
-            if location:
-                op_para.add_run(f" | {location}")
-            if trail_badge:
-                run_trail = op_para.add_run(trail_badge)
-                run_trail.font.color.rgb = RGBColor(0x1B, 0x5E, 0x20)
-                run_trail.italic = True
+        for op in operators:
+            op_head = doc.add_paragraph()
+            op_head.paragraph_format.space_before = Pt(8)
+            name_run = op_head.add_run(op.get("name", "Operator Name"))
+            name_run.font.bold = True
+            name_run.font.size = Pt(10)
+            name_run.font.name = "Arial"
+            name_run.font.color.rgb = COLOR_DARK_TEXT
+
+            if op.get("trail_member"):
+                tm_run = op_head.add_run("  ★ Trail Member")
+                tm_run.font.size = Pt(8)
+                tm_run.font.color.rgb = COLOR_WARM_BROWN
+
+            if op.get("location"):
+                loc_run = op_head.add_run(f"  |  {op['location']}")
+                loc_run.font.size = Pt(9)
+                loc_run.font.color.rgb = COLOR_MEDIUM_GREY
 
             if op.get("description"):
-                add_body(doc, op["description"])
+                p = doc.add_paragraph(op["description"])
+                p.paragraph_format.space_after = Pt(6)
+                for run in p.runs:
+                    run.font.size = Pt(10)
+                    run.font.name = "Georgia"
 
-    doc.add_page_break()
+    add_section_divider(doc)
 
-    # --- Section 6: Seasonal + Practical ---
-    add_heading(doc, "Seasonal Guide", level=1)
-    seasonal = content.get("section_6_seasonal", {})
+    # ── SECTION 6: Seasonal & Practical ─────────────────────────────────────
+    s6_head = doc.add_paragraph()
+    s6_run = s6_head.add_run("When to Go & How to Get There")
+    s6_run.font.size = Pt(13)
+    s6_run.font.bold = True
+    s6_run.font.color.rgb = COLOR_WARM_BROWN
+    s6_run.font.name = "Arial"
+    s6_head.paragraph_format.space_before = Pt(16)
+    s6_head.paragraph_format.space_after = Pt(8)
 
-    # Seasons
-    seasons = seasonal.get("seasons", {})
-    season_labels = {"spring": "Spring", "summer": "Summer", "fall": "Fall", "winter": "Winter"}
-    for season_key, season_label in season_labels.items():
-        text = seasons.get(season_key, "")
+    seasonal = content.get("section_6_seasonal_practical", {}).get("seasonal_guide", {})
+    for season_name, season_key in [("Spring", "spring"), ("Summer", "summer"), ("Fall", "fall"), ("Winter", "winter")]:
+        text = seasonal.get(season_key)
         if text:
-            para = doc.add_paragraph()
-            run = para.add_run(f"{season_label}: ")
-            run.bold = True
-            para.add_run(text)
+            season_head = doc.add_paragraph()
+            sr = season_head.add_run(f"{season_name}  ")
+            sr.font.bold = True
+            sr.font.size = Pt(10)
+            sr.font.color.rgb = COLOR_DEEP_GREEN
+            sr.font.name = "Arial"
+            body_r = season_head.add_run(text)
+            body_r.font.size = Pt(10)
+            body_r.font.name = "Georgia"
+            season_head.paragraph_format.space_after = Pt(6)
 
-    # Shoulder callout
-    shoulder = seasonal.get("shoulder_callout", {})
-    if shoulder.get("content"):
-        doc.add_paragraph()
-        callout_heading = add_heading(doc, shoulder.get("title", "SHOULDER SEASON SPOTLIGHT"), level=2)
-        if shoulder.get("months"):
-            months_para = doc.add_paragraph(shoulder["months"])
-            for run in months_para.runs:
-                run.bold = True
-                run.font.color.rgb = RGBColor(0x6B, 0x70, 0x5C)
-        add_body(doc, shoulder["content"])
+    # Shoulder season callout box
+    shoulder = seasonal.get("shoulder_season_callout", {})
+    if shoulder.get("headline") or shoulder.get("body"):
+        add_callout_box(
+            doc,
+            shoulder.get("headline", "Shoulder Season"),
+            shoulder.get("body", ""),
+            COLOR_DEEP_GREEN
+        )
 
     # Where to base
-    bases = seasonal.get("where_to_base", [])
-    if bases:
-        doc.add_paragraph()
-        add_heading(doc, "Where to Base", level=2)
-        for base in bases:
-            para = doc.add_paragraph()
-            run = para.add_run(f"{base.get('town', '')}: ")
-            run.bold = True
-            para.add_run(base.get("why", ""))
+    base = content.get("section_6_seasonal_practical", {}).get("where_to_base", {})
+    if base.get("intro") or base.get("towns"):
+        base_head = doc.add_paragraph()
+        base_head.paragraph_format.space_before = Pt(12)
+        bh_run = base_head.add_run("Where to Base Yourself")
+        bh_run.font.bold = True
+        bh_run.font.size = Pt(11)
+        bh_run.font.color.rgb = COLOR_DEEP_GREEN
+        bh_run.font.name = "Arial"
 
-    # Getting here
-    getting = seasonal.get("getting_here", {})
-    if any(getting.values()):
-        doc.add_paragraph()
-        add_heading(doc, "Getting Here", level=2)
-        transport_labels = {"by_car": "By Car", "by_train": "By Train", "by_bus": "By Bus"}
-        for key, label in transport_labels.items():
-            text = getting.get(key, "")
+        if base.get("intro"):
+            p = doc.add_paragraph(base["intro"])
+            for run in p.runs:
+                run.font.size = Pt(10)
+                run.font.name = "Georgia"
+
+    # Getting there
+    getting_there = content.get("section_6_seasonal_practical", {}).get("how_to_get_there", {})
+    if any(getting_there.values()):
+        gt_head = doc.add_paragraph()
+        gt_head.paragraph_format.space_before = Pt(12)
+        gh_run = gt_head.add_run("Getting There")
+        gh_run.font.bold = True
+        gh_run.font.size = Pt(11)
+        gh_run.font.color.rgb = COLOR_DEEP_GREEN
+        gh_run.font.name = "Arial"
+
+        for mode, label in [("by_car", "By car"), ("by_train", "By train"), ("by_bus", "By bus")]:
+            text = getting_there.get(mode)
             if text:
-                para = doc.add_paragraph()
-                run = para.add_run(f"{label}: ")
-                run.bold = True
-                para.add_run(text)
+                p = doc.add_paragraph()
+                lr = p.add_run(f"{label}  ")
+                lr.font.bold = True
+                lr.font.size = Pt(10)
+                lr.font.name = "Arial"
+                tr = p.add_run(text)
+                tr.font.size = Pt(10)
+                tr.font.name = "Georgia"
 
-    # --- Footer ---
+    # Footer
     doc.add_paragraph()
+    add_section_divider(doc)
     footer = doc.add_paragraph()
     footer.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = footer.add_run("Upstate — Where New York goes to remember what matters")
-    run.font.size = Pt(9)
-    run.font.color.rgb = RGBColor(0x6B, 0x70, 0x5C)
-    run.italic = True
+    fr = footer.add_run(f"Upstate  |  upstate.travel  |  Part of the Rural Tourism Network  |  {date.today().strftime('%B %Y')}")
+    fr.font.size = Pt(8)
+    fr.font.color.rgb = COLOR_MEDIUM_GREY
+    fr.font.name = "Arial"
 
-    footer2 = doc.add_paragraph()
-    footer2.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run2 = footer2.add_run("Powered by Tourismo | upstate.travel")
-    run2.font.size = Pt(8)
-    run2.font.color.rgb = RGBColor(0x99, 0x99, 0x99)
-
-    # Save
-    os.makedirs(OUTPUTS_DIR, exist_ok=True)
-    output_path = os.path.join(OUTPUTS_DIR, f"guide-{region_key}.docx")
     doc.save(output_path)
-
-    print(f"Guide assembled: {output_path}")
-    print(f"Region: {region['name']}")
-    print(f"Sections: 6")
-    print(f"Trails documented: {len(trails)}")
-    total_ops = sum(len(operators.get(cat, [])) for cat in category_labels)
-    print(f"Featured operators: {total_ops}")
-    print(f"Voice violations: 0")
+    return output_path
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Phase 4: Guide Creation")
-    parser.add_argument("--content-template", action="store_true", help="Print content JSON template")
-    parser.add_argument("--region", type=str, help="Region key")
-    parser.add_argument("--analysis", type=str, help="Path to completed analysis JSON")
-    parser.add_argument("--content", type=str, help="Path to completed content JSON")
+    parser = argparse.ArgumentParser(description="Phase 4: Assemble the Regional Guide Word doc")
+    parser.add_argument("--region", "-r", help="Region key")
+    parser.add_argument("--analysis", "-a", help="Path to completed Phase 3 analysis JSON")
+    parser.add_argument("--content", "-c", help="Path to Claude-written content JSON")
+    parser.add_argument("--output", "-o", help="Output path for the .docx")
+    parser.add_argument("--content-template", action="store_true", help="Print the content JSON template")
     args = parser.parse_args()
 
     if args.content_template:
-        print_content_template()
+        print(json.dumps(CONTENT_TEMPLATE, indent=2))
         return
 
-    if not all([args.region, args.analysis, args.content]):
-        parser.print_help()
-        print("\nUsage examples:")
-        print("  python tools/phase4_guide.py --content-template > outputs/content-finger_lakes.json")
-        print("  python tools/phase4_guide.py --region finger_lakes \\")
-        print("      --analysis outputs/analysis-finger_lakes.json \\")
-        print("      --content outputs/content-finger_lakes.json")
+    if not args.region:
+        print("ERROR: --region required. Use --content-template to see what Claude should write.")
         sys.exit(1)
 
-    for path in [args.analysis, args.content]:
-        if not os.path.exists(path):
-            print(f"Error: File not found: {path}", file=sys.stderr)
-            sys.exit(1)
+    # Load analysis if provided
+    analysis = {}
+    if args.analysis and Path(args.analysis).exists():
+        with open(args.analysis) as f:
+            analysis = json.load(f)
 
-    build_guide(args.region, args.analysis, args.content)
+    # Load content if provided, else use empty template
+    content = {}
+    if args.content and Path(args.content).exists():
+        with open(args.content) as f:
+            content = json.load(f)
+    else:
+        # Pre-fill what we can from analysis
+        region_data = analysis.get("meta", {})
+        content = dict(CONTENT_TEMPLATE)
+        content["region"] = region_data.get("region", args.region.replace("_", " ").title())
+        print("NOTE: No --content file provided. Building guide with placeholder text.")
+        print("      Claude should fill outputs/content-<region>.json first.\n")
+
+    OUTPUTS_PATH.mkdir(parents=True, exist_ok=True)
+    region_slug = args.region
+    out_path = Path(args.output) if args.output else OUTPUTS_PATH / f"guide-{region_slug}.docx"
+
+    output_path = build_guide(content, analysis, out_path)
+
+    print(f"\n{'='*55}")
+    print(f"PHASE 4 COMPLETE — {content.get('region', region_slug)}")
+    print(f"{'='*55}")
+    print(f"Guide saved → {output_path}")
+    print()
+    print("NEXT STEPS:")
+    print("  1. Review the guide in Word")
+    print("  2. Add photography placeholders")
+    print("  3. Share with RTN for review")
+    print("  4. Adapt hero section as Upstate website copy")
+    print(f"{'='*55}\n")
 
 
 if __name__ == "__main__":

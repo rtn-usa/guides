@@ -1,0 +1,209 @@
+{
+  "meta": {
+    "region": "Finger Lakes",
+    "region_key": "finger_lakes",
+    "generated": "2026-03-13",
+    "analysis_status": "DRAFT \u2014 Claude to complete all sections below",
+    "completeness_score": 0
+  },
+  "assets": {
+    "_instructions": "Research and document the region's natural, cultural, culinary, and craft beverage assets. Be specific \u2014 name the mountains, the foods, the producers, the history.",
+    "natural_anchors": {
+      "_instructions": "Major natural features that draw visitors. Name specific peaks, lakes, gorges, waterfalls, parks.",
+      "known_from_data": [
+        "Watkins Glen",
+        "Seneca Falls",
+        "Ithaca",
+        "Canandaigua",
+        "Penn Yan",
+        "Hammondsport"
+      ],
+      "researched": []
+    },
+    "heritage_and_culture": {
+      "_instructions": "Historic sites, museums, notable events, Indigenous history, immigration heritage, industrial legacy.",
+      "researched": []
+    },
+    "culinary_identity": {
+      "_instructions": "What food or agricultural product is this region KNOWN for? Not just 'farm-to-table' \u2014 what specific thing? (e.g., Finger Lakes = Riesling; Catskills = trout; Hudson Valley = foie gras era but also apple orchards)",
+      "signature_products": [],
+      "notable_producers": [],
+      "culinary_reputation_nationally": null
+    },
+    "craft_beverage_profile": {
+      "_instructions": "Wine, beer, spirits, cider \u2014 how developed is the scene? Names of notable producers. Regional styles.",
+      "wine_trails": [],
+      "brewery_cidery_scene": null,
+      "spirits": null,
+      "flagship_producers": []
+    }
+  },
+  "infrastructure": {
+    "_instructions": "Can a visitor actually spend 2+ nights here? How do they get there? What visitor services exist?",
+    "lodging": {
+      "_instructions": "Range and volume. Not just 'there are hotels' \u2014 how many rooms, what types (B&B, inn, resort, camping, glamping), and what price tier?",
+      "lodging_types_present": [],
+      "approx_room_count": null,
+      "price_range": null,
+      "flagship_properties": [],
+      "gaps_or_weaknesses": null
+    },
+    "access": {
+      "_instructions": "How do visitors actually get here? What's the drive from NYC, Buffalo, Albany, Toronto? Is there Amtrak or bus access?",
+      "drive_times": {
+        "NYC": "5 hr",
+        "Albany": "3 hr",
+        "Buffalo": "2 hr",
+        "Toronto": "3 hr",
+        "Philadelphia": "5.5 hr"
+      },
+      "amtrak_served": null,
+      "bus_access": null,
+      "nearest_major_airport": null,
+      "primary_arrival_route": null
+    },
+    "visitor_infrastructure": {
+      "visitor_centers": [],
+      "wayfinding_quality": null,
+      "digital_presence": null,
+      "passport_program_active": null,
+      "trail_coordination_body": null
+    },
+    "weekend_viability": {
+      "_instructions": "Can a visitor plan a Fri-Sun trip and have enough to fill two days? Or is this a corridor stop?",
+      "verdict": null,
+      "reasoning": null,
+      "anchor_experience_for_overnight": null
+    }
+  },
+  "uvp": {
+    "_instructions": "This is the heart of the guide. What does this region have that no other NY region does? What's the identity? What's the RTN pitch to DMOs?",
+    "singular_identity": {
+      "_instructions": "One clear, specific sentence that captures what makes this region irreplaceable. No generic language. No 'something for everyone.'",
+      "statement": null,
+      "supporting_evidence": []
+    },
+    "destination_vs_corridor": {
+      "_instructions": "Is this region a destination in its own right, or is it primarily a corridor stop (e.g., 'on the way from Albany to Montreal')?",
+      "verdict": null,
+      "corridor_routes": [],
+      "reasoning": null
+    },
+    "competitive_differentiation": {
+      "_instructions": "How is this different from neighboring regions? What would you miss if you skipped it?",
+      "vs_neighboring_regions": {},
+      "unique_assets": []
+    },
+    "visitor_archetypes": {
+      "_instructions": "Who actually comes here and why? 2-3 specific visitor types with their motivations.",
+      "primary": null,
+      "secondary": null,
+      "emerging": null
+    },
+    "rtn_partnership_pitch": {
+      "_instructions": "What would you say to a DMO in this region to get them to join the Upstate network? What's their gain?",
+      "key_message": null,
+      "gaps_we_solve": [],
+      "comparable_success": null
+    }
+  },
+  "seasonality": {
+    "_instructions": "When should visitors come, and for what? The shoulder season is the most underexploited \u2014 what's the opportunity?",
+    "peak_season": {
+      "months": [],
+      "primary_draws": [],
+      "crowd_level": null,
+      "pricing_pressure": null
+    },
+    "shoulder_season": {
+      "_instructions": "This is Upstate's biggest editorial opportunity \u2014 when is it, and what's there to do?",
+      "months": [],
+      "opportunity": null,
+      "what_makes_it_worth_it": [],
+      "under_visited_reason": null
+    },
+    "off_season": {
+      "months": [],
+      "anchors": [],
+      "viable": null
+    },
+    "signature_events": {
+      "_instructions": "Named annual events that anchor visits \u2014 festivals, races, openings, harvests.",
+      "events": []
+    },
+    "seasonal_guide_headline": {
+      "_instructions": "One line per season that would work as an Upstate editorial callout box.",
+      "spring": null,
+      "summer": null,
+      "fall": null,
+      "winter": null
+    }
+  },
+  "county_trail_map": {
+    "_instructions": "For each county, list the active trails. Flag counties with NO trail as priority RTN outreach targets.",
+    "counties": {
+      "Cayuga": {
+        "active_trails": [],
+        "trail_gap": null,
+        "gap_opportunity": null
+      },
+      "Chemung": {
+        "active_trails": [],
+        "trail_gap": null,
+        "gap_opportunity": null
+      },
+      "Livingston": {
+        "active_trails": [],
+        "trail_gap": null,
+        "gap_opportunity": null
+      },
+      "Monroe": {
+        "active_trails": [],
+        "trail_gap": null,
+        "gap_opportunity": null
+      },
+      "Ontario": {
+        "active_trails": [],
+        "trail_gap": null,
+        "gap_opportunity": null
+      },
+      "Schuyler": {
+        "active_trails": [],
+        "trail_gap": null,
+        "gap_opportunity": null
+      },
+      "Seneca": {
+        "active_trails": [],
+        "trail_gap": null,
+        "gap_opportunity": null
+      },
+      "Steuben": {
+        "active_trails": [],
+        "trail_gap": null,
+        "gap_opportunity": null
+      },
+      "Tompkins": {
+        "active_trails": [],
+        "trail_gap": null,
+        "gap_opportunity": null
+      },
+      "Wayne": {
+        "active_trails": [],
+        "trail_gap": null,
+        "gap_opportunity": null
+      },
+      "Yates": {
+        "active_trails": [],
+        "trail_gap": null,
+        "gap_opportunity": null
+      }
+    }
+  },
+  "guide_framing": {
+    "_instructions": "Quick notes for the Phase 4 guide writer. What's the emotional hook? What's the lede?",
+    "emotional_hook": null,
+    "lede_angle": null,
+    "what_to_avoid": [],
+    "comparable_editorial_tone": null
+  }
+}

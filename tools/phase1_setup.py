@@ -1,202 +1,150 @@
 #!/usr/bin/env python3
 """
-Phase 1 — Regional Mapping & Setup
-
-Generates the initial setup brief for a region, including:
-- Region metadata (counties, base towns, drive times)
-- DMO list with URLs to verify
-- Trail data with county mapping placeholders
-- Trail gap identification placeholders
-
-Usage:
-    python tools/phase1_setup.py --region <key>
-    python tools/phase1_setup.py --list
-
-After running, Claude should:
-1. Verify each DMO URL is live
-2. Research trail-to-county mapping
-3. Flag counties with no active trail (gap counties)
-4. Add trail URLs and passport availability
-5. Save completed brief to outputs/setup-<region>.json
+Phase 1: Regional Mapping & Setup
+Outputs a structured setup brief for a given region.
+Usage: python tools/phase1_setup.py --region finger_lakes [--output outputs/]
 """
 
-import argparse
 import json
-import os
+import argparse
 import sys
+from pathlib import Path
+from datetime import date
 
-REGIONS_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "ny_regions.json")
-OUTPUTS_DIR = os.path.join(os.path.dirname(__file__), "..", "outputs")
+DATA_PATH = Path(__file__).parent.parent / "data" / "ny_regions.json"
+OUTPUTS_PATH = Path(__file__).parent.parent / "outputs"
 
 
 def load_regions():
-    with open(REGIONS_FILE, "r") as f:
-        return json.load(f)
+    with open(DATA_PATH) as f:
+        return json.load(f)["regions"]
 
 
-def list_regions(data):
-    print("Available regions:")
-    print("-" * 50)
-    for key, region in sorted(data["regions"].items()):
-        county_count = len(region["counties"])
-        trail_count = len(region.get("trails", []))
-        print(f"  {key:<25} {region['name']:<25} ({county_count} counties, {trail_count} trails)")
+def list_regions(regions):
+    print("\nAvailable regions:")
+    for key, r in regions.items():
+        county_count = len(r["counties"])
+        trail_count = len(r["trails"])
+        print(f"  {key:30s} → {county_count} counties, {trail_count} known trails")
     print()
-    print(f"Total regions: {len(data['regions'])}")
 
 
-def generate_setup_brief(data, region_key):
-    if region_key not in data["regions"]:
-        print(f"Error: Region '{region_key}' not found.", file=sys.stderr)
-        print(f"Available: {', '.join(sorted(data['regions'].keys()))}", file=sys.stderr)
+def build_setup_brief(region_key, regions):
+    if region_key not in regions:
+        print(f"ERROR: '{region_key}' not found. Run with --list to see available regions.")
         sys.exit(1)
 
-    region = data["regions"][region_key]
-
-    # Build trail-to-county mapping with verification placeholders
-    trails_brief = []
-    counties_with_trails = set()
-
-    for trail in region.get("trails", []):
-        trail_counties = trail.get("counties", [])
-        counties_with_trails.update(trail_counties)
-        trails_brief.append({
-            "name": trail["name"],
-            "type": trail["type"],
-            "counties": trail_counties,
-            "website": trail.get("website"),
-            "website_verified": None,  # Claude fills: true/false
-            "stops_approx": trail.get("stops_approx"),
-            "passport": trail.get("passport"),
-            "passport_verified": None,  # Claude fills: true/false
-            "member_directory_url": None,  # Claude fills
-            "notes": None  # Claude fills
-        })
-
-    # Identify gap counties
-    all_counties = set(region["counties"])
-    gap_counties = all_counties - counties_with_trails
-    covered_counties = all_counties & counties_with_trails
-
-    gap_county_briefs = []
-    for county in sorted(gap_counties):
-        gap_county_briefs.append({
-            "county": county,
-            "has_trail": False,
-            "potential_trail_type": None,  # Claude fills
-            "existing_producers": None,  # Claude fills
-            "dmo_partner": None,  # Claude fills
-            "notes": None  # Claude fills
-        })
-
-    # DMO verification list
-    dmos_brief = []
-    for dmo in region.get("dmos", []):
-        dmos_brief.append({
-            "name": dmo["name"],
-            "url": dmo["url"],
-            "url_verified": None,  # Claude fills: true/false
-            "counties_served": dmo["counties_served"],
-            "has_listings_page": None,  # Claude fills: true/false
-            "listings_url": None,  # Claude fills
-            "notes": None  # Claude fills
-        })
-
-    # Assemble the brief
+    r = regions[region_key]
     brief = {
+        "region": r["display_name"],
         "region_key": region_key,
-        "region_name": region["name"],
-        "description": region["description"],
-        "counties": {
-            "all": sorted(region["counties"]),
-            "with_trails": sorted(counties_with_trails),
-            "gap_counties": sorted(gap_counties),
-            "total": len(region["counties"]),
-            "coverage_pct": round(len(covered_counties) / len(all_counties) * 100, 1) if all_counties else 0
-        },
-        "base_towns": region["base_towns"],
-        "drive_times": region["drive_times"],
-        "amtrak": region.get("amtrak", {}),
-        "trails": trails_brief,
-        "trail_summary": {
-            "total": len(trails_brief),
-            "with_passport": sum(1 for t in trails_brief if t.get("passport")),
-            "with_website": sum(1 for t in trails_brief if t.get("website")),
-            "types": sorted(set(t["type"] for t in trails_brief))
-        },
-        "gap_counties": gap_county_briefs,
-        "dmos": dmos_brief,
-        "phase1_status": {
-            "dmo_urls_verified": False,
-            "trails_mapped_to_counties": False,
-            "gap_counties_analyzed": False,
-            "trail_urls_verified": False,
-            "completed": False
+        "generated": str(date.today()),
+        "counties": [],
+        "trail_map": [],
+        "trail_gaps": [],
+        "metro_proximity": r.get("metro_proximity", {}),
+        "key_anchors": r.get("key_anchors", [])
+    }
+
+    # Build county list with DMO info
+    counties_with_trails = set()
+    for trail in r.get("trails", []):
+        # Mark all counties as having trails (simplified — Claude will refine this)
+        for c in r["counties"]:
+            counties_with_trails.add(c["name"])
+            break  # Just flag that the region has trails; per-county mapping is Claude's job
+
+    for county in r["counties"]:
+        county_entry = {
+            "county": county["name"],
+            "dmo_name": county["dmo"],
+            "dmo_url": county["dmo_url"],
+            "has_active_trail": None,  # Claude will research and fill this
+            "trail_names": []          # Claude will research and fill this
         }
+        brief["counties"].append(county_entry)
+
+    # Trail list
+    for trail in r.get("trails", []):
+        brief["trail_map"].append({
+            "trail_name": trail,
+            "counties_served": [],   # Claude fills during research
+            "has_passport": None,    # Claude fills during research
+            "trail_url": None,       # Claude fills during research
+            "member_count": None     # Claude fills during research
+        })
+
+    # Trail gaps = counties where no trail is currently active (Claude identifies these)
+    brief["trail_gaps"] = {
+        "note": "Claude: research each county above and flag any with no active tourism trail — these are RTN's primary partnership opportunities.",
+        "gaps_identified": []
     }
 
     return brief
 
 
+def output_brief(brief, output_dir):
+    output_dir = Path(output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    slug = brief["region_key"]
+    out_path = output_dir / f"setup-{slug}.json"
+    with open(out_path, "w") as f:
+        json.dump(brief, f, indent=2)
+
+    print(f"\n{'='*60}")
+    print(f"PHASE 1 SETUP BRIEF — {brief['region']}")
+    print(f"{'='*60}")
+    print(f"Generated: {brief['generated']}")
+    print(f"Counties:  {len(brief['counties'])}")
+    print(f"Known trails: {len(brief['trail_map'])}")
+    print()
+    print("COUNTIES & DMOs:")
+    for c in brief["counties"]:
+        print(f"  {c['county']:18s} | {c['dmo_name']}")
+        print(f"  {'':18s}   {c['dmo_url']}")
+    print()
+    print("KNOWN TRAILS:")
+    for t in brief["trail_map"]:
+        print(f"  • {t['trail_name']}")
+    print()
+    print("METRO PROXIMITY:")
+    for city, dist in brief["metro_proximity"].items():
+        print(f"  {city}: {dist}")
+    print()
+    print("KEY ANCHORS:")
+    for a in brief["key_anchors"]:
+        print(f"  • {a}")
+    print()
+    print(f"NEXT STEPS FOR CLAUDE CODE:")
+    print(f"  1. Verify and complete trail_map entries (URL, passport availability, member count)")
+    print(f"  2. Identify trail_gaps — counties with no active trail")
+    print(f"  3. Confirm DMO URLs are live and sourcing-ready")
+    print(f"  4. Run: python tools/phase2_source.py --region {slug} --setup outputs/setup-{slug}.json")
+    print()
+    print(f"Brief saved → {out_path}")
+    print(f"{'='*60}\n")
+
+    return out_path
+
+
 def main():
-    parser = argparse.ArgumentParser(description="Phase 1: Regional Mapping & Setup")
-    parser.add_argument("--region", type=str, help="Region key (e.g., finger_lakes)")
-    parser.add_argument("--list", action="store_true", help="List all available regions")
+    parser = argparse.ArgumentParser(description="Phase 1: Generate regional setup brief")
+    parser.add_argument("--region", "-r", help="Region key (e.g. finger_lakes, catskills)")
+    parser.add_argument("--list", "-l", action="store_true", help="List all available regions")
+    parser.add_argument("--output", "-o", default="outputs", help="Output directory")
     args = parser.parse_args()
 
-    data = load_regions()
+    regions = load_regions()
 
-    if args.list:
-        list_regions(data)
+    if args.list or not args.region:
+        list_regions(regions)
+        if not args.region:
+            print("Use --region <key> to generate a setup brief.")
         return
 
-    if not args.region:
-        parser.print_help()
-        print("\nUse --list to see available regions.")
-        sys.exit(1)
-
-    brief = generate_setup_brief(data, args.region)
-
-    # Ensure outputs directory exists
-    os.makedirs(OUTPUTS_DIR, exist_ok=True)
-
-    # Print the brief summary
-    print(f"Phase 1 Setup Brief: {brief['region_name']}")
-    print("=" * 60)
-    print(f"Counties: {brief['counties']['total']} total, {len(brief['counties']['with_trails'])} with trails, {len(brief['counties']['gap_counties'])} gaps")
-    print(f"Trails: {brief['trail_summary']['total']} ({brief['trail_summary']['with_passport']} with passport)")
-    print(f"DMOs: {len(brief['dmos'])}")
-    print()
-
-    if brief["counties"]["gap_counties"]:
-        print("GAP COUNTIES (no active trail):")
-        for county in brief["counties"]["gap_counties"]:
-            print(f"  - {county}")
-        print()
-
-    print("DMO URLs to verify:")
-    for dmo in brief["dmos"]:
-        print(f"  - {dmo['name']}: {dmo['url']}")
-    print()
-
-    print("Trail websites to verify:")
-    for trail in brief["trails"]:
-        url = trail["website"] or "(no URL known)"
-        print(f"  - {trail['name']}: {url}")
-    print()
-
-    # Save the brief
-    output_path = os.path.join(OUTPUTS_DIR, f"setup-{args.region}.json")
-    with open(output_path, "w") as f:
-        json.dump(brief, f, indent=2)
-    print(f"Brief saved to: {output_path}")
-    print()
-    print("NEXT STEPS for Claude:")
-    print("1. Fetch each DMO URL to verify it's live")
-    print("2. Research trail-to-county mapping at county level")
-    print("3. Flag gap counties and assess partnership potential")
-    print("4. Verify trail URLs and passport availability")
-    print(f"5. Save completed brief to {output_path}")
+    brief = build_setup_brief(args.region, regions)
+    output_brief(brief, args.output)
 
 
 if __name__ == "__main__":
