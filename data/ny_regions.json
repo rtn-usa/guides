@@ -109,12 +109,15 @@
       "counties": [
         {"name": "Cayuga", "dmo": "Cayuga County Tourism", "dmo_url": "https://www.tourcayuga.com"},
         {"name": "Chemung", "dmo": "Chemung County Tourism", "dmo_url": "https://www.chemungchamber.org"},
+        {"name": "Cortland", "dmo": "Cortland County Tourism", "dmo_url": "https://www.visitcortland.com"},
         {"name": "Livingston", "dmo": "Livingston County Tourism", "dmo_url": "https://www.livingstoncounty.us/tourism"},
         {"name": "Monroe", "dmo": "Visit Rochester", "dmo_url": "https://www.visitrochester.com"},
+        {"name": "Onondaga", "dmo": "Visit Syracuse", "dmo_url": "https://www.visitsyracuse.com"},
         {"name": "Ontario", "dmo": "Ontario County Tourism", "dmo_url": "https://www.visitfingerlakes.com"},
         {"name": "Schuyler", "dmo": "Schuyler County Tourism", "dmo_url": "https://www.schuylerny.com"},
         {"name": "Seneca", "dmo": "Seneca County Tourism", "dmo_url": "https://www.senecachamber.org"},
         {"name": "Steuben", "dmo": "Steuben County Tourism", "dmo_url": "https://www.corningfingerlakes.com"},
+        {"name": "Tioga", "dmo": "Tioga County Tourism", "dmo_url": "https://www.tiogatourism.com"},
         {"name": "Tompkins", "dmo": "Tompkins County Tourism", "dmo_url": "https://www.visitithaca.com"},
         {"name": "Wayne", "dmo": "Wayne County Tourism", "dmo_url": "https://www.waynecounty.com"},
         {"name": "Yates", "dmo": "Yates County Tourism", "dmo_url": "https://www.yatescounty.org"}

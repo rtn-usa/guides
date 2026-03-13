@@ -18,6 +18,13 @@
       "trail_names": ["Finger Lakes Wine Country (FLWC marketing region)"]
     },
     {
+      "county": "Cortland",
+      "dmo_name": "Cortland County Tourism",
+      "dmo_url": "https://www.visitcortland.com",
+      "has_active_trail": false,
+      "trail_names": []
+    },
+    {
       "county": "Livingston",
       "dmo_name": "Livingston County Tourism",
       "dmo_url": "https://www.livingstoncounty.us/tourism",
@@ -28,6 +35,13 @@
       "county": "Monroe",
       "dmo_name": "Visit Rochester",
       "dmo_url": "https://www.visitrochester.com",
+      "has_active_trail": false,
+      "trail_names": []
+    },
+    {
+      "county": "Onondaga",
+      "dmo_name": "Visit Syracuse",
+      "dmo_url": "https://www.visitsyracuse.com",
       "has_active_trail": false,
       "trail_names": []
     },
@@ -65,6 +79,13 @@
       "dmo_url": "https://www.visitithaca.com",
       "has_active_trail": true,
       "trail_names": ["Cayuga Lake Wine Trail", "Finger Lakes Beer Trail", "Finger Lakes Cheese Trail"]
+    },
+    {
+      "county": "Tioga",
+      "dmo_name": "Tioga County Tourism",
+      "dmo_url": "https://www.tiogatourism.com",
+      "has_active_trail": true,
+      "trail_names": ["Finger Lakes Wine Country"]
     },
     {
       "county": "Wayne",
@@ -178,6 +199,11 @@
     "note": "Counties with no active tourism trail — RTN's primary partnership opportunities.",
     "gaps_identified": [
       {
+        "county": "Cortland",
+        "opportunity": "Gateway to Greek Peak ski resort and the Finger Lakes Trail eastern terminus. College town (SUNY Cortland) with growing craft beverage scene. Potential for a Cortland County outdoor/adventure trail linking Greek Peak, Lime Hollow, and Finger Lakes Trail access points. DMO partner: Cortland County Tourism.",
+        "existing_assets": "Greek Peak Mountain Resort, Lime Hollow Nature Center, 1890 House Museum, Cortland Beer Company, SUNY Cortland"
+      },
+      {
         "county": "Livingston",
         "opportunity": "Home to Letchworth State Park (the 'Grand Canyon of the East'). Strong outdoor/adventure identity. Potential for a Genesee Valley outdoor trail linking Letchworth, SUNY Geneseo area farms, and Conesus Lake. DMO partner: Livingston County Tourism.",
         "existing_assets": "Letchworth State Park, Geneseo historic village, Conesus Lake, active farms"
@@ -186,6 +212,11 @@
         "county": "Monroe",
         "opportunity": "Rochester is a major metro gateway but has no formal tourism trail connecting its cultural assets. Potential for a Rochester Cultural Trail (George Eastman Museum, Strong Museum of Play, Highland Park, Genesee Riverway) or a Rochester Craft Beverage Trail. DMO partner: Visit Rochester.",
         "existing_assets": "George Eastman Museum, Strong Museum of Play, Rochester Public Market, 20+ craft breweries"
+      },
+      {
+        "county": "Onondaga",
+        "opportunity": "Syracuse is the eastern gateway to the Finger Lakes and largest metro in the FLTA region. Skaneateles Lake is one of the cleanest in the US. Potential for a Syracuse Cultural Trail (Everson Museum, Destiny USA, Armory Square dining) or a Skaneateles Lake trail. DMO partner: Visit Syracuse.",
+        "existing_assets": "Everson Museum of Art, Destiny USA, Skaneateles Lake & Village, Onondaga Lake Park, Middle Ages Brewing, Syracuse University"
       },
       {
         "county": "Wayne",

@@ -32,8 +32,19 @@ Input JSON format:
     ]
   }
 
-Categories (6 standard):
-  food_drink | culture_heritage | attractions | wellness | outdoor | agriculture
+Categories (7 standard):
+  food_drink | culture_heritage | attractions | wellness | outdoor | agriculture | accommodation
+
+New fields:
+  "regional_id": "{County Name} County"   — e.g. "Schuyler County"
+  "business_type": "Winery"               — specific business type
+  "tags": {                                — structured tag object
+    "Business Type": "Winery",
+    "Business Category": "Food & Drink",
+    "Location": ["Schuyler County", "Finger Lakes"],
+    "Trail": "Seneca Lake Wine Trail",
+    "Amenities": ["Tasting Room", "Tours"]
+  }
 """
 
 import json
@@ -54,6 +65,7 @@ OUTPUTS_PATH = Path(__file__).parent.parent / "outputs"
 
 # RTN Standard column spec
 COLUMNS = [
+    ("Regional ID",      22),
     ("Business Name",    38),
     ("Street Address",   30),
     ("Town/City",        20),
@@ -64,16 +76,19 @@ COLUMNS = [
     ("Trail Name",       34),
     ("Website",          34),
     ("Phone",            16),
+    ("Tags",             65),
     ("Notes",            55),
 ]
 
 CATEGORY_LABELS = {
     "food_drink":        "Food & Drink",
     "culture_heritage":  "Culture & Heritage",
-    "attractions":       "Attractions",
+    "attractions":       "Attraction",
+    "attraction":        "Attraction",
     "wellness":          "Wellness",
     "outdoor":           "Outdoor",
     "agriculture":       "Agriculture",
+    "accommodation":     "Accommodation",
 }
 
 # Styling
@@ -102,10 +117,12 @@ TEMPLATE = {
             "county": "Schuyler",
             "state": "NY",
             "category": "food_drink",
+            "business_type": "Winery",
             "trail_name": "Seneca Lake Wine Trail",
             "trail_member": True,
             "website": "examplewinery.com",
             "phone": "607-555-0100",
+            "amenities": ["Tasting Room", "Tours", "Restaurant"],
             "notes": "Estate winery on Seneca Lake's eastern shore. Known for Riesling and dry rosé."
         }
     ]
@@ -162,24 +179,66 @@ def setup_summary_sheet(ws):
         cell.alignment = Alignment(horizontal="center", vertical="center")
 
 
-def write_listing_row(ws, row_num, listing):
+def build_tags(listing, region):
+    """Build structured tag object from listing data."""
+    category_key = listing.get("category", "").lower()
+    category_label = CATEGORY_LABELS.get(category_key, listing.get("category", ""))
+    county = listing.get("county", "")
+    tags = {}
+
+    # Business Type
+    btype = listing.get("business_type")
+    if btype:
+        tags["Business Type"] = btype
+
+    # Business Category
+    if category_label:
+        tags["Business Category"] = category_label
+
+    # Location
+    location = []
+    if county:
+        location.append(f"{county} County")
+    if region:
+        location.append(region)
+    if location:
+        tags["Location"] = location if len(location) > 1 else location[0]
+
+    # Trail
+    trail_name = listing.get("trail_name")
+    if trail_name:
+        tags["Trail"] = trail_name
+
+    # Amenities
+    amenities = listing.get("amenities")
+    if amenities:
+        tags["Amenities"] = amenities if isinstance(amenities, list) else [amenities]
+
+    return json.dumps(tags, ensure_ascii=False) if tags else ""
+
+
+def write_listing_row(ws, row_num, listing, region=""):
     trail_member = listing.get("trail_member", False)
     fill = TRAIL_FILL if trail_member else (EVEN_FILL if row_num % 2 == 0 else ODD_FILL)
 
     category_key = listing.get("category", "").lower()
     category_label = CATEGORY_LABELS.get(category_key, listing.get("category", ""))
+    county = listing.get("county", "")
+    regional_id = f"{county} County" if county else ""
 
     values = [
+        regional_id,
         listing.get("business_name", ""),
         listing.get("address", ""),
         listing.get("city", ""),
-        listing.get("county", ""),
+        county,
         listing.get("state", "NY"),
         category_label,
         "✓ Trail Member" if trail_member else "",
         listing.get("trail_name", ""),
         listing.get("website", ""),
         listing.get("phone", ""),
+        build_tags(listing, region),
         listing.get("notes", ""),
     ]
 
@@ -190,7 +249,7 @@ def write_listing_row(ws, row_num, listing):
         cell.border = THIN_BORDER
         cell.alignment = Alignment(
             vertical="center",
-            wrap_text=(col_idx == len(COLUMNS))
+            wrap_text=(col_idx in (len(COLUMNS), len(COLUMNS) - 1))
         )
         if col_idx == len(COLUMNS):  # Notes column
             ws.row_dimensions[row_num].height = 30
@@ -230,7 +289,7 @@ def process_listings(input_data, output_path, append_mode):
     trail_members = 0
     for i, listing in enumerate(listings):
         row_num = start_row + i
-        write_listing_row(ws, row_num, listing)
+        write_listing_row(ws, row_num, listing, region=region)
         if listing.get("trail_member"):
             trail_members += 1
 
