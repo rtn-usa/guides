@@ -176,11 +176,13 @@
     },
     "rtn_partnership_pitch": {
       "_instructions": "What would you say to a DMO to get them to join?",
-      "key_message": "The Finger Lakes has the most developed trail infrastructure in Upstate NY. Joining Upstate connects isolated wine trails to a statewide 75-trail discovery platform. For gap counties (Livingston, Monroe, Wayne), Upstate provides the framework to launch new trails.",
+      "key_message": "The Finger Lakes has the most developed trail infrastructure in Upstate NY — 14 counties, 12 trails, but 5 gap counties with no active trail. Joining Upstate connects isolated wine trails to a statewide discovery platform. For gap counties (Cortland, Livingston, Monroe, Onondaga, Wayne), Upstate provides the framework to launch new trails and connect metro gateways (Rochester, Syracuse) to the wine country core.",
       "gaps_we_solve": [
         "Cross-trail discovery: Seneca Lake visitors don't know about the Cheese Trail unless someone connects them",
-        "Shoulder season marketing at scale",
-        "Gap county trail activation with proven playbook"
+        "Shoulder season marketing at scale — May/June and late October are under-promoted",
+        "Gap county trail activation with proven playbook for 5 counties",
+        "Metro gateway integration: Rochester and Syracuse visitors need a bridge to the wine country core",
+        "Unified digital passport across all 12 trails — currently fragmented across 6+ platforms"
       ],
       "comparable_success": "Lake Erie Wine Country saw increased passport sales after joining a regional tourism network. The same model across Finger Lakes' 12 trails would be transformative."
     }
@@ -242,15 +244,214 @@
     "counties": {
       "Cayuga": {"active_trails": ["Cayuga Lake Wine Trail", "Finger Lakes Sweet Treat Trail"], "trail_gap": false, "gap_opportunity": null},
       "Chemung": {"active_trails": ["Finger Lakes Wine Country (marketing region)"], "trail_gap": false, "gap_opportunity": null},
+      "Cortland": {"active_trails": [], "trail_gap": true, "gap_opportunity": "Gateway to Greek Peak and Finger Lakes Trail. College town with growing brewery scene. Potential Cortland County Adventure Trail linking Greek Peak, Lime Hollow, and Finger Lakes Trail access."},
       "Livingston": {"active_trails": [], "trail_gap": true, "gap_opportunity": "Letchworth State Park anchor. Potential Genesee Valley Outdoor Trail linking Letchworth, Conesus Lake, and Geneseo farms."},
       "Monroe": {"active_trails": [], "trail_gap": true, "gap_opportunity": "Rochester has 20+ breweries, Eastman Museum, Strong Museum, Public Market. Rochester Cultural Trail or Craft Beverage Trail is the play."},
+      "Onondaga": {"active_trails": [], "trail_gap": true, "gap_opportunity": "Syracuse is the eastern metro gateway. Skaneateles Lake is one of the cleanest in the US. Potential Syracuse Cultural Trail or Skaneateles Lake trail."},
       "Ontario": {"active_trails": ["Canandaigua Lake Wine Trail", "Finger Lakes Beer Trail", "Finger Lakes Sweet Treat Trail"], "trail_gap": false, "gap_opportunity": null},
       "Schuyler": {"active_trails": ["Seneca Lake Wine Trail", "Finger Lakes Beer Trail", "Finger Lakes Cheese Trail"], "trail_gap": false, "gap_opportunity": null},
       "Seneca": {"active_trails": ["Seneca Lake Wine Trail", "Cayuga Lake Wine Trail", "Finger Lakes Sweet Treat Trail"], "trail_gap": false, "gap_opportunity": null},
       "Steuben": {"active_trails": ["Keuka Lake Wine Trail", "Finger Lakes Beer Trail", "Finger Lakes Cheese Trail"], "trail_gap": false, "gap_opportunity": null},
+      "Tioga": {"active_trails": ["Finger Lakes Wine Country"], "trail_gap": false, "gap_opportunity": null},
       "Tompkins": {"active_trails": ["Cayuga Lake Wine Trail", "Finger Lakes Beer Trail", "Finger Lakes Cheese Trail"], "trail_gap": false, "gap_opportunity": null},
       "Wayne": {"active_trails": [], "trail_gap": true, "gap_opportunity": "Lake Ontario shoreline, top apple county, Erie Canal heritage, Chimney Bluffs. Potential agritourism or heritage trail."},
       "Yates": {"active_trails": ["Seneca Lake Wine Trail", "Keuka Lake Wine Trail", "Finger Lakes Beer Trail", "Finger Lakes Cheese Trail"], "trail_gap": false, "gap_opportunity": null}
+    }
+  },
+
+  "marketing_strategies": {
+    "_instructions": "Strategic marketing recommendations for RTN and DMO partners.",
+
+    "positioning": {
+      "brand_position": "The Finger Lakes is where wine, water, and rock converge — the most concentrated cool-climate wine ecosystem in eastern North America, set inside a landscape of glacial gorges and 11 lakes that the geology itself made possible.",
+      "tagline_options": [
+        "Go Further Into the Finger Lakes",
+        "Eleven Lakes. Four Wine Trails. One Landscape That Made Them All.",
+        "Where the Land Drops Away and the Wine Begins"
+      ],
+      "positioning_against_competition": "Position against Napa/Sonoma on intimacy and access (you meet the winemaker, not a hospitality team). Position against Hudson Valley on density and immersion (a weekend here is a deep dive, not a day trip). Position against Catskills on the wine-plus-gorge combination nobody else has."
+    },
+
+    "audience_segments": [
+      {
+        "segment": "Wine Weekenders",
+        "demographics": "Couples 30-55, dual income, mid-Atlantic and Northeast metros (NYC, Philadelphia, Toronto, Pittsburgh)",
+        "motivations": "Wine trail touring, romantic getaway, tasting room culture, harvest events",
+        "channels": ["Wine Enthusiast digital", "Instagram (winery accounts)", "Google search (Finger Lakes wineries)", "Vivino community", "Weekend getaway aggregators"],
+        "spend_profile": "2-3 night stays, $200-400/night lodging, $50-100/day tastings, $80-150/dinner",
+        "seasonal_window": "May through October, with September-October as peak demand",
+        "messaging_angle": "You don't need to fly to wine country — the eastern Riesling capital is a five-hour drive from Manhattan and the tasting room doors are open."
+      },
+      {
+        "segment": "Regional Family Explorers",
+        "demographics": "Families with kids 5-16 from Rochester, Syracuse, Buffalo metros. Repeat visitors.",
+        "motivations": "Gorge hikes, lake swimming, state park camping, kid-friendly museums (Strong, CMOG)",
+        "channels": ["Facebook community groups", "I Love NY family content", "Rochester/Syracuse local media", "Google Maps/TripAdvisor"],
+        "spend_profile": "1-2 night stays, $100-200/night lodging, camping $30-60, day-trip frequent",
+        "seasonal_window": "June through August, with July 4th and Labor Day weekends as peaks",
+        "messaging_angle": "The gorges are free, the lakes are warm, and the state parks have room — this is where Upstate families come back to every summer."
+      },
+      {
+        "segment": "Wine Enthusiasts & Trade",
+        "demographics": "Sommeliers, wine writers, collectors, wine-educated travelers. 35-65. Higher income.",
+        "motivations": "Dry Riesling pilgrimage, winemaker conversations, vineyard-specific terroir, harvest timing",
+        "channels": ["Wine Spectator", "Decanter", "GuildSomm", "trade tastings", "winery DTC mailing lists", "Substack wine writers"],
+        "spend_profile": "2-4 night stays, $300-500/night lodging, cellar purchases $200-1000, high per-visit value",
+        "seasonal_window": "Shoulder season preferred (May-June, late October). Avoid crowds.",
+        "messaging_angle": "The wines that critics compare to the Mosel are being made by people you can actually sit down with — and the geology that makes it possible is visible in every gorge wall."
+      },
+      {
+        "segment": "Cultural Tourists",
+        "demographics": "Adults 40-70, education-motivated, history and museum interest. Often combining with other Upstate stops.",
+        "motivations": "Corning Museum of Glass, Women's Rights NHP, Harriet Tubman NHP, George Eastman Museum, Ganondagan",
+        "channels": ["Smithsonian affiliates network", "National Parks app/website", "PBS/NPR audiences", "AAA travel planning", "museum reciprocal membership programs"],
+        "spend_profile": "2-3 night stays, $150-300/night, moderate dining spend, gift shop purchases",
+        "seasonal_window": "Year-round, with concentration in June-October. CMOG and Strong are major winter anchors.",
+        "messaging_angle": "Three National Park sites, the world's largest glass collection, and the birthplace of American women's rights — within an hour of each other."
+      }
+    ],
+
+    "channel_strategy": {
+      "owned_channels": {
+        "upstate_travel_website": "Finger Lakes hub page with sub-region guides (Seneca Wine Country, Ithaca Gorges, Corning Arts, Keuka Lake, Rochester Gateway). Itinerary builder. Trail passport integration.",
+        "email_marketing": "Seasonal campaigns: shoulder season push (April), harvest preview (August), winter indoor culture (November). Segment by archetype.",
+        "content_calendar": [
+          {"month": "March", "theme": "Maple Weekend + ice wine last call", "format": "Blog + email"},
+          {"month": "April", "theme": "Shoulder season launch — gorge waterfalls at peak flow", "format": "Email blast + Instagram Reels"},
+          {"month": "May", "theme": "GlassFest Corning + Rochester Lilac Festival", "format": "Event guide + social"},
+          {"month": "June", "theme": "Ithaca Festival + summer winery openings", "format": "Weekend itinerary guide"},
+          {"month": "July", "theme": "Finger Lakes Wine Festival + lake season", "format": "Featured operators + social"},
+          {"month": "August", "theme": "Harvest preview + farm stand season", "format": "Producer profiles"},
+          {"month": "September", "theme": "Naples Grape Festival + fall wine events", "format": "Event guide + trail passport push"},
+          {"month": "October", "theme": "Peak foliage + harvest dinners", "format": "Weekend itinerary + drone footage"},
+          {"month": "November", "theme": "Thanksgiving wine pairings + Gaffer District holiday shopping", "format": "Gift guide + email"},
+          {"month": "December", "theme": "Winter wine country — ice wine, CMOG, Strong Museum", "format": "Indoor culture guide"}
+        ]
+      },
+      "paid_channels": {
+        "google_ads": "Branded and non-branded search. Target 'Finger Lakes wineries,' 'Watkins Glen hiking,' 'upstate NY weekend getaway,' 'wine tasting near me' (geo-target NYC, Philly, Toronto). Estimated CPC $1.50-3.00.",
+        "meta_ads": "Instagram/Facebook. Carousel ads featuring wine + gorge imagery. Lookalike audiences from winery email lists. Video ads for shoulder season. Geo-target: NYC metro, Philadelphia, Rochester, Syracuse, Toronto.",
+        "programmatic_display": "Retarget website visitors with seasonal offers. Partnership with wine and travel publishers for native content.",
+        "influencer_partnerships": "Micro-influencers (10K-100K followers) in wine, hiking, and food travel. Hosted press trips with 3-day itineraries. Trade: wine writers, sommeliers for credibility content."
+      },
+      "earned_channels": {
+        "pr_strategy": "Pitch Wine Enthusiast (annual region feature), Bon Appetit (producer profiles), NYT Travel (weekend itinerary), Conde Nast Traveler (gorge + wine pairing). Leverage 2025 Wine Enthusiast American Wine Region of the Year recognition.",
+        "travel_trade": "Presentations at NY State Tourism Conference, Wine Bloggers Conference. FAM trips for travel advisors. AAA relationship for printed guide distribution.",
+        "partnerships": "I Love NY co-op advertising. Cross-promote with Amtrak (Rochester/Syracuse stations as gateways). Airport partnership with ROC and SYR for arrivals hall presence."
+      }
+    },
+
+    "trail_activation_strategy": {
+      "existing_trail_optimization": [
+        {
+          "trail": "Seneca Lake Wine Trail",
+          "status": "Mature, well-organized",
+          "strategy": "Cross-sell to Cheese Trail and Beer Trail visitors. Shoulder season passport discounts. Winter ice wine event expansion."
+        },
+        {
+          "trail": "Cayuga Lake Wine Trail",
+          "status": "Established, heritage brand (America's first wine trail)",
+          "strategy": "Lean into the 'first wine trail' story. Connect to Tubman NHP and Seneca Falls for culture-plus-wine itineraries."
+        },
+        {
+          "trail": "Keuka Lake Wine Trail",
+          "status": "Small (6 members) but high quality",
+          "strategy": "Position as the intimate, serious wine trail — counterpoint to Seneca's scale. Promote Dr. Frank and Hunt Country as anchor producers."
+        },
+        {
+          "trail": "Finger Lakes Beer Trail",
+          "status": "Growing, 50+ members across 6+ counties",
+          "strategy": "Beer-plus-gorge itineraries. Position as the alternative to wine for younger demographics. Partner with craft food producers."
+        },
+        {
+          "trail": "Finger Lakes Cheese Trail",
+          "status": "Niche, 15 members",
+          "strategy": "Wine-and-cheese pairing marketing. Joint passport with Seneca Lake Wine Trail. Farm visit storytelling content."
+        }
+      ],
+      "gap_county_activation": [
+        {
+          "county": "Cortland",
+          "proposed_trail": "Cortland County Adventure Trail",
+          "concept": "Link Greek Peak, Lime Hollow Nature Center, Finger Lakes Trail access points, Cortland Beer Company, and 1890 House Museum into a four-season outdoor-plus-culture loop.",
+          "timeline": "12-18 months for trail concept, partner recruitment, and digital presence.",
+          "investment_estimate": "Low — primarily coordination and digital infrastructure. Greek Peak is the anchor with existing visitor flow."
+        },
+        {
+          "county": "Livingston",
+          "proposed_trail": "Genesee Valley Outdoor Trail",
+          "concept": "Letchworth State Park as the anchor. Connect to Geneseo historic village, Conesus Lake recreation, and local farms. Adventure-oriented: gorge hiking, whitewater rafting, hot air ballooning.",
+          "timeline": "6-12 months. Letchworth is already a major draw — the trail formalizes connections to surrounding businesses.",
+          "investment_estimate": "Low-medium. Primary need is digital infrastructure and wayfinding signage."
+        },
+        {
+          "county": "Monroe",
+          "proposed_trail": "Rochester Cultural & Craft Beverage Trail",
+          "concept": "Two-track trail: cultural (Eastman Museum, Strong Museum, Susan B. Anthony House, Highland Park) and craft beverage (Genesee Brew House + 20 breweries). Rochester is the gateway metro — build it as the 'start here' entry point to the Finger Lakes.",
+          "timeline": "12-18 months. Requires Visit Rochester DMO partnership.",
+          "investment_estimate": "Medium. Rochester has the assets but needs trail coordination and passport infrastructure."
+        },
+        {
+          "county": "Onondaga",
+          "proposed_trail": "Skaneateles & Syracuse Gateway Trail",
+          "concept": "Skaneateles Lake village as the premium anchor. Connect to Everson Museum, Armory Square dining district, Onondaga Lake Park. Position Syracuse as the eastern gateway to the Finger Lakes wine country.",
+          "timeline": "12-18 months. Visit Syracuse partnership essential.",
+          "investment_estimate": "Medium. Strong existing assets but fragmented tourism identity."
+        },
+        {
+          "county": "Wayne",
+          "proposed_trail": "Lake Ontario Agritourism Trail",
+          "concept": "Apple orchards and farm markets as anchors. Connect Burnap's Farm Market, Long Acre Farms, Chimney Bluffs State Park, Sodus Bay Lighthouse, Erie Canal heritage towns (Palmyra, Newark). October apple season is the peak.",
+          "timeline": "6-12 months. Agricultural base is already strong — needs formalization.",
+          "investment_estimate": "Low. Partner with existing farm market operators for trail membership."
+        }
+      ]
+    },
+
+    "kpi_framework": {
+      "awareness": [
+        "Website sessions to Finger Lakes hub page (target: 50K/month by Year 1)",
+        "Social media impressions (target: 2M/quarter across owned channels)",
+        "PR placement count (target: 12 major placements/year in wine and travel press)"
+      ],
+      "engagement": [
+        "Trail passport activations (target: 15% increase Year 1 across all trails)",
+        "Email subscriber growth (target: 10K new subscribers Year 1)",
+        "Average time on Finger Lakes guide pages (target: 3+ minutes)",
+        "Itinerary builder completions (target: 5K custom itineraries/year)"
+      ],
+      "conversion": [
+        "Referral clicks to operator websites (target: 25K/year)",
+        "Lodging booking referrals (target: 8K/year)",
+        "Trail passport purchases via Upstate platform (target: 3K/year)",
+        "DMO partnership sign-ups from gap counties (target: 3 of 5 within 18 months)"
+      ],
+      "economic_impact": [
+        "Visitor spending attributed to Upstate referrals (target: $2M Year 1)",
+        "Shoulder season visit share increase (target: +5% May-June visits Year 1)",
+        "Gap county tourism revenue growth (target: 10% increase within 24 months)"
+      ]
+    },
+
+    "competitive_response": {
+      "threats": [
+        "Virginia wine country growing in visibility and press coverage",
+        "Willamette Valley (Oregon) attracting eastern US wine tourists with direct flights",
+        "Hudson Valley proximity advantage for NYC weekenders",
+        "Airbnb/VRBO supply constraints during peak season driving visitors to other regions"
+      ],
+      "opportunities": [
+        "Wine Enthusiast 2025 American Wine Region of the Year — capitalize on press momentum",
+        "Climate change extending growing season — new varietals becoming viable",
+        "Remote work enabling longer stays (Mon-Thu wine country, Fri-Sun explore)",
+        "Haudenosaunee heritage tourism growing nationally — Ganondagan as anchor",
+        "Gorge tourism underserved digitally — no dominant content platform for Watkins Glen or Taughannock"
+      ],
+      "defensive_moves": [
+        "Own the 'eastern Riesling capital' narrative before Virginia or Long Island claims it",
+        "Lock in shoulder season pricing agreements with lodging partners",
+        "Build content moat: definitive online guides for each lake, each gorge, each trail"
+      ]
     }
   },
 
