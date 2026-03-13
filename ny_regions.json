@@ -1,0 +1,204 @@
+{
+  "regions": {
+    "adirondacks": {
+      "display_name": "Adirondacks",
+      "counties": [
+        {"name": "Clinton", "dmo": "North Country Chamber of Commerce", "dmo_url": "https://www.northcountrychamber.com"},
+        {"name": "Essex", "dmo": "Essex County Tourism", "dmo_url": "https://www.essexcountyny.gov/tourism"},
+        {"name": "Franklin", "dmo": "Franklin County Tourism", "dmo_url": "https://www.adirondacks.com"},
+        {"name": "Fulton", "dmo": "Fulton County Regional Chamber", "dmo_url": "https://www.fultoncountyny.gov"},
+        {"name": "Hamilton", "dmo": "Hamilton County Tourism", "dmo_url": "https://hamiltoncounty.com"},
+        {"name": "Herkimer", "dmo": "Herkimer County Tourism", "dmo_url": "https://www.herkimercounty.org"},
+        {"name": "Lewis", "dmo": "Lewis County Tourism", "dmo_url": "https://www.lewiscountyny.org"},
+        {"name": "Saratoga", "dmo": "Saratoga County Tourism", "dmo_url": "https://www.discoversaratoga.org"},
+        {"name": "St. Lawrence", "dmo": "St. Lawrence County Tourism", "dmo_url": "https://www.visitstlawrence.com"},
+        {"name": "Warren", "dmo": "Warren County Tourism", "dmo_url": "https://www.visitlakegeorge.com"},
+        {"name": "Washington", "dmo": "Washington County Tourism", "dmo_url": "https://www.washingtoncountyny.gov/tourism"}
+      ],
+      "trails": [
+        "Adirondack Craft Beverage Trail",
+        "Lake Champlain Bicycle Trail",
+        "Adirondack Experience",
+        "North Country Trail",
+        "Gore Mountain Trails"
+      ],
+      "key_anchors": ["High Peaks Wilderness", "Lake Placid", "Lake George", "Saranac Lake", "Tupper Lake"],
+      "metro_proximity": {"NYC": "3.5 hr", "Albany": "1.5 hr", "Montreal": "2 hr", "Boston": "4 hr"}
+    },
+    "capital": {
+      "display_name": "Capital Region",
+      "counties": [
+        {"name": "Albany", "dmo": "Albany County Convention & Visitors Bureau", "dmo_url": "https://www.albany.org"},
+        {"name": "Columbia", "dmo": "Columbia County Tourism", "dmo_url": "https://www.columbiacountyny.com"},
+        {"name": "Greene", "dmo": "Greene County Tourism", "dmo_url": "https://www.greenecountyny.gov/tourism"},
+        {"name": "Montgomery", "dmo": "Montgomery County Tourism", "dmo_url": "https://www.montgomerycountyny.com"},
+        {"name": "Rensselaer", "dmo": "Rensselaer County Tourism", "dmo_url": "https://www.rensco.com"},
+        {"name": "Saratoga", "dmo": "Discover Saratoga", "dmo_url": "https://www.discoversaratoga.org"},
+        {"name": "Schenectady", "dmo": "Schenectady County Tourism", "dmo_url": "https://www.discoverschenectady.com"},
+        {"name": "Schoharie", "dmo": "Schoharie County Tourism", "dmo_url": "https://www.schohariecountyny.gov"}
+      ],
+      "trails": [
+        "Capital Craft Beverage Trail",
+        "Mohawk Valley Heritage Corridor",
+        "Erie Canalway Trail",
+        "Albany County Wine Trail",
+        "Saratoga Wine Trail",
+        "Hudson-Mohawk Industrial Gateway"
+      ],
+      "key_anchors": ["Saratoga Springs", "Albany", "Troy", "Schenectady", "Cooperstown"],
+      "metro_proximity": {"NYC": "2.5 hr", "Boston": "3 hr", "Montreal": "3 hr", "Buffalo": "4.5 hr"}
+    },
+    "catskills": {
+      "display_name": "Catskills",
+      "counties": [
+        {"name": "Delaware", "dmo": "Delaware County Tourism", "dmo_url": "https://www.delawarecounty.org"},
+        {"name": "Greene", "dmo": "Greene County Tourism", "dmo_url": "https://www.greenecountyny.gov/tourism"},
+        {"name": "Sullivan", "dmo": "Sullivan County Visitors Association", "dmo_url": "https://www.visitsullivancatskills.com"},
+        {"name": "Ulster", "dmo": "Ulster County Tourism", "dmo_url": "https://www.ulstercountyny.gov/tourism"}
+      ],
+      "trails": [
+        "Shawangunk Wine Trail",
+        "Catskill Craft Beverage Trail",
+        "Hudson Valley Spirits Trail",
+        "Delaware-Otsego Audubon Society Trail",
+        "Sullivan County Catskills Trail"
+      ],
+      "key_anchors": ["Woodstock", "Saugerties", "Narrowsburg", "Catskill", "Windham"],
+      "metro_proximity": {"NYC": "2 hr", "Albany": "1.5 hr", "Philadelphia": "3 hr", "Boston": "4.5 hr"}
+    },
+    "central_ny": {
+      "display_name": "Central NY",
+      "counties": [
+        {"name": "Cayuga", "dmo": "Cayuga County Tourism", "dmo_url": "https://www.tourcayuga.com"},
+        {"name": "Cortland", "dmo": "Explore Cortland", "dmo_url": "https://www.explorecortland.com"},
+        {"name": "Madison", "dmo": "Madison County Tourism", "dmo_url": "https://www.visitmadisoncounty.com"},
+        {"name": "Oneida", "dmo": "Oneida County Tourism", "dmo_url": "https://www.oneidacountytourism.com"},
+        {"name": "Onondaga", "dmo": "Visit Syracuse", "dmo_url": "https://www.visitsyracuse.com"},
+        {"name": "Oswego", "dmo": "Oswego County Tourism", "dmo_url": "https://www.visitoswegocounty.com"}
+      ],
+      "trails": [
+        "CNY Cheese Trail",
+        "Oneida Lake Scenic Byway",
+        "Erie Canalway Trail",
+        "Central New York Craft Beverage Trail",
+        "Mohawk Valley Heritage Corridor",
+        "Finger Lakes Trail (eastern)"
+      ],
+      "key_anchors": ["Syracuse", "Utica", "Rome", "Auburn", "Cazenovia"],
+      "metro_proximity": {"NYC": "4.5 hr", "Albany": "2.5 hr", "Buffalo": "3 hr", "Toronto": "3.5 hr"}
+    },
+    "chautauqua_alleghany": {
+      "display_name": "Chautauqua-Alleghany",
+      "counties": [
+        {"name": "Allegany", "dmo": "Allegany County Tourism", "dmo_url": "https://www.discoveralleganycountyny.com"},
+        {"name": "Cattaraugus", "dmo": "Cattaraugus County Tourism", "dmo_url": "https://www.enchantedmountains.com"},
+        {"name": "Chautauqua", "dmo": "Chautauqua County Visitors Bureau", "dmo_url": "https://www.tourchautauqua.com"}
+      ],
+      "trails": [
+        "Lake Erie Wine Country",
+        "Chautauqua Wine Trail",
+        "Enchanted Mountains Trail",
+        "Western New York Craft Beverage Trail",
+        "Allegany State Park Trails"
+      ],
+      "key_anchors": ["Chautauqua Institution", "Jamestown", "Ellicottville", "Fredonia", "Westfield"],
+      "metro_proximity": {"NYC": "7 hr", "Buffalo": "1 hr", "Cleveland": "2 hr", "Pittsburgh": "2.5 hr"}
+    },
+    "finger_lakes": {
+      "display_name": "Finger Lakes",
+      "counties": [
+        {"name": "Cayuga", "dmo": "Cayuga County Tourism", "dmo_url": "https://www.tourcayuga.com"},
+        {"name": "Chemung", "dmo": "Chemung County Tourism", "dmo_url": "https://www.chemungchamber.org"},
+        {"name": "Livingston", "dmo": "Livingston County Tourism", "dmo_url": "https://www.livingstoncounty.us/tourism"},
+        {"name": "Monroe", "dmo": "Visit Rochester", "dmo_url": "https://www.visitrochester.com"},
+        {"name": "Ontario", "dmo": "Ontario County Tourism", "dmo_url": "https://www.visitfingerlakes.com"},
+        {"name": "Schuyler", "dmo": "Schuyler County Tourism", "dmo_url": "https://www.schuylerny.com"},
+        {"name": "Seneca", "dmo": "Seneca County Tourism", "dmo_url": "https://www.senecachamber.org"},
+        {"name": "Steuben", "dmo": "Steuben County Tourism", "dmo_url": "https://www.corningfingerlakes.com"},
+        {"name": "Tompkins", "dmo": "Tompkins County Tourism", "dmo_url": "https://www.visitithaca.com"},
+        {"name": "Wayne", "dmo": "Wayne County Tourism", "dmo_url": "https://www.waynecounty.com"},
+        {"name": "Yates", "dmo": "Yates County Tourism", "dmo_url": "https://www.yatescounty.org"}
+      ],
+      "trails": [
+        "Finger Lakes Wine Trail",
+        "Seneca Lake Wine Trail",
+        "Cayuga Lake Wine Trail",
+        "Keuka Lake Wine Trail",
+        "Canandaigua Lake Wine Trail",
+        "Finger Lakes Beer Trail",
+        "Finger Lakes Cider Trail",
+        "Finger Lakes Cheese Trail",
+        "Finger Lakes Farm Trail",
+        "Ithaca Farmers Market Trail",
+        "Corning Museum Glass Trail",
+        "Watkins Glen Trail"
+      ],
+      "key_anchors": ["Watkins Glen", "Seneca Falls", "Ithaca", "Canandaigua", "Penn Yan", "Hammondsport"],
+      "metro_proximity": {"NYC": "5 hr", "Albany": "3 hr", "Buffalo": "2 hr", "Toronto": "3 hr", "Philadelphia": "5.5 hr"}
+    },
+    "hudson_valley": {
+      "display_name": "Hudson Valley",
+      "counties": [
+        {"name": "Columbia", "dmo": "Columbia County Tourism", "dmo_url": "https://www.columbiacountyny.com"},
+        {"name": "Dutchess", "dmo": "Dutchess County Tourism", "dmo_url": "https://www.dutchesstourism.com"},
+        {"name": "Greene", "dmo": "Greene County Tourism", "dmo_url": "https://www.greenecountyny.gov/tourism"},
+        {"name": "Orange", "dmo": "Orange County Tourism", "dmo_url": "https://www.orangetourism.org"},
+        {"name": "Putnam", "dmo": "Putnam County Tourism", "dmo_url": "https://www.goputnam.com"},
+        {"name": "Rockland", "dmo": "Rockland County Tourism", "dmo_url": "https://www.rocklandcountyny.gov"},
+        {"name": "Sullivan", "dmo": "Sullivan County Visitors Association", "dmo_url": "https://www.visitsullivancatskills.com"},
+        {"name": "Ulster", "dmo": "Ulster County Tourism", "dmo_url": "https://www.ulstercountyny.gov/tourism"},
+        {"name": "Westchester", "dmo": "Tourism Westchester", "dmo_url": "https://www.tourismwestchester.org"}
+      ],
+      "trails": [
+        "Shawangunk Wine Trail",
+        "Hudson Valley Wine Trail",
+        "Hudson-Berkshire Beverage Trail",
+        "Hudson Valley Spirits Trail",
+        "Dutchess Wine Trail",
+        "Hudson Valley Agritourism Trail",
+        "Scenic Hudson Trail",
+        "Hudson River Valley Heritage Area"
+      ],
+      "key_anchors": ["Hudson", "Rhinebeck", "Beacon", "Kingston", "Cold Spring", "Warwick"],
+      "metro_proximity": {"NYC": "1.5 hr", "Albany": "2 hr", "Hartford": "2.5 hr", "Philadelphia": "3 hr"}
+    },
+    "niagara_frontier": {
+      "display_name": "Niagara Frontier",
+      "counties": [
+        {"name": "Erie", "dmo": "Visit Buffalo Niagara", "dmo_url": "https://www.visitbuffaloniagara.com"},
+        {"name": "Genesee", "dmo": "Genesee County Tourism", "dmo_url": "https://www.geneseeny.gov"},
+        {"name": "Niagara", "dmo": "Niagara Tourism & Convention Corp", "dmo_url": "https://www.niagara-usa.com"},
+        {"name": "Orleans", "dmo": "Orleans County Tourism", "dmo_url": "https://www.orleanscountyofny.com"},
+        {"name": "Wyoming", "dmo": "Wyoming County Tourism", "dmo_url": "https://www.wyomingcountyny.gov"}
+      ],
+      "trails": [
+        "Lake Erie Wine Country",
+        "Niagara Wine Trail USA",
+        "Western New York Craft Beverage Trail",
+        "Erie Canalway Trail",
+        "Niagara Falls Heritage Area",
+        "Letchworth Trail",
+        "Genesee Valley Greenway"
+      ],
+      "key_anchors": ["Buffalo", "Niagara Falls", "Letchworth State Park", "Lewiston", "Lockport"],
+      "metro_proximity": {"NYC": "6.5 hr", "Toronto": "1.5 hr", "Cleveland": "3 hr", "Pittsburgh": "3.5 hr", "Albany": "5 hr"}
+    },
+    "thousand_islands": {
+      "display_name": "Thousand Islands-Seaway",
+      "counties": [
+        {"name": "Jefferson", "dmo": "Thousand Islands International Tourism Council", "dmo_url": "https://www.visit1000islands.com"},
+        {"name": "Lewis", "dmo": "Lewis County Tourism", "dmo_url": "https://www.lewiscountyny.org"},
+        {"name": "St. Lawrence", "dmo": "St. Lawrence County Tourism", "dmo_url": "https://www.visitstlawrence.com"}
+      ],
+      "trails": [
+        "Thousand Islands Seaway Trail",
+        "St. Lawrence River Heritage Trail",
+        "North Country National Scenic Trail",
+        "Tug Hill Snowmobile Trail",
+        "Clayton Antique Boat Trail"
+      ],
+      "key_anchors": ["Clayton", "Alexandria Bay", "Cape Vincent", "Ogdensburg", "Sackets Harbor"],
+      "metro_proximity": {"NYC": "5.5 hr", "Albany": "3 hr", "Montreal": "2.5 hr", "Toronto": "3.5 hr"}
+    }
+  }
+}
