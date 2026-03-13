@@ -1,0 +1,780 @@
+{
+  "regions": {
+    "adirondacks": {
+      "name": "Adirondacks",
+      "description": "Six million acres of forever-wild forest, the largest publicly protected area in the contiguous US.",
+      "counties": [
+        "Clinton", "Essex", "Franklin", "Fulton", "Hamilton",
+        "Herkimer", "Lewis", "Oneida", "Saratoga", "St. Lawrence",
+        "Warren", "Washington"
+      ],
+      "base_towns": ["Lake Placid", "Saranac Lake", "Old Forge", "Lake George", "Tupper Lake"],
+      "drive_times": {
+        "nyc": "4.5-5.5 hours",
+        "albany": "1.5-3 hours",
+        "montreal": "1-2 hours",
+        "syracuse": "2-3.5 hours"
+      },
+      "amtrak": {
+        "available": true,
+        "stations": ["Westport", "Port Henry", "Ticonderoga", "Whitehall", "Fort Edward"],
+        "line": "Adirondack (NYC to Montreal)"
+      },
+      "trails": [
+        {
+          "name": "Adirondack Craft Beverage Trail",
+          "type": "craft_beverage",
+          "counties": ["Essex", "Franklin", "Hamilton", "Warren"],
+          "website": "https://www.adirondackcraftbeveragetrail.com",
+          "stops_approx": 15,
+          "passport": true
+        },
+        {
+          "name": "Adirondack Wine & Food Festival Trail",
+          "type": "food_wine",
+          "counties": ["Warren", "Washington", "Saratoga"],
+          "website": null,
+          "stops_approx": 10,
+          "passport": false
+        }
+      ],
+      "dmos": [
+        {
+          "name": "Regional Office of Sustainable Tourism (ROOST)",
+          "url": "https://www.roostadk.com",
+          "counties_served": ["Essex", "Franklin", "Hamilton"]
+        },
+        {
+          "name": "Warren County Tourism",
+          "url": "https://www.visitlakegeorge.com",
+          "counties_served": ["Warren"]
+        },
+        {
+          "name": "Hamilton County Tourism",
+          "url": "https://www.hamiltoncounty.com",
+          "counties_served": ["Hamilton"]
+        },
+        {
+          "name": "Visit Adirondacks",
+          "url": "https://visitadirondacks.com",
+          "counties_served": ["Clinton", "Essex", "Franklin", "Hamilton"]
+        }
+      ]
+    },
+    "capital": {
+      "name": "Capital-Saratoga",
+      "description": "New York's seat of government, anchored by Albany, Troy, Saratoga Springs, and the upper Hudson corridor.",
+      "counties": [
+        "Albany", "Columbia", "Greene", "Rensselaer",
+        "Saratoga", "Schenectady", "Warren", "Washington"
+      ],
+      "base_towns": ["Albany", "Troy", "Saratoga Springs", "Schenectady"],
+      "drive_times": {
+        "nyc": "2.5-3 hours",
+        "boston": "2.5-3 hours",
+        "montreal": "3-3.5 hours",
+        "syracuse": "2.5 hours"
+      },
+      "amtrak": {
+        "available": true,
+        "stations": ["Albany-Rennselaer", "Saratoga Springs", "Schenectady", "Hudson"],
+        "line": "Empire Service, Ethan Allen Express, Adirondack, Lake Shore Limited"
+      },
+      "trails": [
+        {
+          "name": "Upper Hudson Wine Trail",
+          "type": "wine",
+          "counties": ["Saratoga", "Washington"],
+          "website": null,
+          "stops_approx": 6,
+          "passport": false
+        },
+        {
+          "name": "Capital Craft Beverage Trail",
+          "type": "craft_beverage",
+          "counties": ["Albany", "Rensselaer", "Saratoga", "Schenectady"],
+          "website": "https://capitalcraftbeveragetrail.com",
+          "stops_approx": 30,
+          "passport": true
+        },
+        {
+          "name": "Mohawk Valley Heritage Corridor",
+          "type": "heritage",
+          "counties": ["Schenectady", "Albany"],
+          "website": null,
+          "stops_approx": 12,
+          "passport": false
+        }
+      ],
+      "dmos": [
+        {
+          "name": "Discover Albany",
+          "url": "https://www.albany.org",
+          "counties_served": ["Albany"]
+        },
+        {
+          "name": "Discover Saratoga",
+          "url": "https://www.discoversaratoga.org",
+          "counties_served": ["Saratoga"]
+        },
+        {
+          "name": "Rensselaer County Tourism",
+          "url": "https://www.renscotourism.com",
+          "counties_served": ["Rensselaer"]
+        },
+        {
+          "name": "Discover Schenectady",
+          "url": "https://www.discoverschenectady.com",
+          "counties_served": ["Schenectady"]
+        }
+      ]
+    },
+    "catskills": {
+      "name": "Catskills",
+      "description": "Wild mountains two hours from Manhattan — where the Borscht Belt gave way to farm-to-table and fly fishing.",
+      "counties": [
+        "Delaware", "Greene", "Sullivan", "Ulster"
+      ],
+      "base_towns": ["Kingston", "Woodstock", "Phoenicia", "Livingston Manor", "Andes"],
+      "drive_times": {
+        "nyc": "2-2.5 hours",
+        "albany": "1-1.5 hours",
+        "philadelphia": "2.5-3 hours"
+      },
+      "amtrak": {
+        "available": true,
+        "stations": ["Rhinecliff (nearby)", "Hudson (nearby)"],
+        "line": "Empire Service (closest stations across the river)"
+      },
+      "trails": [
+        {
+          "name": "Catskill Mountains Craft Beverage Trail",
+          "type": "craft_beverage",
+          "counties": ["Delaware", "Greene", "Sullivan", "Ulster"],
+          "website": null,
+          "stops_approx": 20,
+          "passport": false
+        },
+        {
+          "name": "Sullivan Catskills Dove Trail",
+          "type": "craft_beverage",
+          "counties": ["Sullivan"],
+          "website": "https://sullivancatskills.com/dove-trail",
+          "stops_approx": 15,
+          "passport": true
+        },
+        {
+          "name": "Upper Delaware Scenic Byway",
+          "type": "scenic",
+          "counties": ["Sullivan", "Delaware"],
+          "website": null,
+          "stops_approx": 10,
+          "passport": false
+        },
+        {
+          "name": "Catskill Interpretive Center Trail Network",
+          "type": "outdoor",
+          "counties": ["Ulster"],
+          "website": "https://catskillinterpretivecenter.org",
+          "stops_approx": 5,
+          "passport": false
+        }
+      ],
+      "dmos": [
+        {
+          "name": "Visit Ulster County",
+          "url": "https://ulstercountyalive.com",
+          "counties_served": ["Ulster"]
+        },
+        {
+          "name": "Sullivan Catskills Visitors Association",
+          "url": "https://sullivancatskills.com",
+          "counties_served": ["Sullivan"]
+        },
+        {
+          "name": "Greene County Tourism",
+          "url": "https://www.greatnortherncatskills.com",
+          "counties_served": ["Greene"]
+        },
+        {
+          "name": "Delaware County Tourism",
+          "url": "https://www.delawarecounty.org",
+          "counties_served": ["Delaware"]
+        }
+      ]
+    },
+    "central_ny": {
+      "name": "Central New York",
+      "description": "Syracuse and the rolling farmland surrounding it — the geographic heart of the state.",
+      "counties": [
+        "Cayuga", "Cortland", "Madison", "Onondaga", "Oswego"
+      ],
+      "base_towns": ["Syracuse", "Skaneateles", "Cazenovia", "Cortland"],
+      "drive_times": {
+        "nyc": "4-4.5 hours",
+        "albany": "2.5 hours",
+        "buffalo": "2.5 hours",
+        "rochester": "1.5 hours"
+      },
+      "amtrak": {
+        "available": true,
+        "stations": ["Syracuse"],
+        "line": "Empire Service, Lake Shore Limited"
+      },
+      "trails": [
+        {
+          "name": "Finger Lakes Sweet Treat Trail",
+          "type": "food",
+          "counties": ["Cayuga", "Onondaga"],
+          "website": null,
+          "stops_approx": 12,
+          "passport": true
+        },
+        {
+          "name": "CNY Wine Trail",
+          "type": "wine",
+          "counties": ["Onondaga", "Madison", "Cortland"],
+          "website": null,
+          "stops_approx": 8,
+          "passport": false
+        },
+        {
+          "name": "Erie Canalway Trail",
+          "type": "heritage",
+          "counties": ["Onondaga", "Madison", "Oswego"],
+          "website": "https://eriecanalway.org",
+          "stops_approx": 15,
+          "passport": false
+        }
+      ],
+      "dmos": [
+        {
+          "name": "Visit Syracuse",
+          "url": "https://www.visitsyracuse.com",
+          "counties_served": ["Onondaga"]
+        },
+        {
+          "name": "Cayuga County Tourism",
+          "url": "https://www.tourcayuga.com",
+          "counties_served": ["Cayuga"]
+        },
+        {
+          "name": "Cortland County Tourism",
+          "url": "https://www.experiencecortland.com",
+          "counties_served": ["Cortland"]
+        },
+        {
+          "name": "Madison County Tourism",
+          "url": "https://www.madisontourism.com",
+          "counties_served": ["Madison"]
+        }
+      ]
+    },
+    "chautauqua_alleghany": {
+      "name": "Chautauqua-Allegheny",
+      "description": "New York's western frontier — lake shores, old-growth forests, and a cultural institution unlike any other.",
+      "counties": [
+        "Allegany", "Cattaraugus", "Chautauqua"
+      ],
+      "base_towns": ["Jamestown", "Chautauqua", "Ellicottville", "Olean"],
+      "drive_times": {
+        "nyc": "6-7 hours",
+        "buffalo": "1-1.5 hours",
+        "pittsburgh": "2-2.5 hours",
+        "cleveland": "2-2.5 hours",
+        "erie_pa": "0.5-1 hour"
+      },
+      "amtrak": {
+        "available": false,
+        "stations": [],
+        "line": null
+      },
+      "trails": [
+        {
+          "name": "Chautauqua County Wine Trail",
+          "type": "wine",
+          "counties": ["Chautauqua"],
+          "website": null,
+          "stops_approx": 10,
+          "passport": false
+        },
+        {
+          "name": "Lake Erie Wine Country",
+          "type": "wine",
+          "counties": ["Chautauqua"],
+          "website": "https://www.lakeeriewinecountry.com",
+          "stops_approx": 24,
+          "passport": true
+        },
+        {
+          "name": "Enchanted Mountains Trail",
+          "type": "outdoor",
+          "counties": ["Cattaraugus"],
+          "website": "https://www.enchantedmountains.com",
+          "stops_approx": 8,
+          "passport": false
+        }
+      ],
+      "dmos": [
+        {
+          "name": "Chautauqua County Visitors Bureau",
+          "url": "https://www.tourchautauqua.com",
+          "counties_served": ["Chautauqua"]
+        },
+        {
+          "name": "Enchanted Mountains (Cattaraugus County)",
+          "url": "https://www.enchantedmountains.com",
+          "counties_served": ["Cattaraugus"]
+        },
+        {
+          "name": "Allegany County Tourism",
+          "url": "https://www.alleganyco.gov",
+          "counties_served": ["Allegany"]
+        }
+      ]
+    },
+    "finger_lakes": {
+      "name": "Finger Lakes",
+      "description": "Eleven glacial lakes, 130-plus wineries, gorges that cut through 400 million years of rock — New York's wine country and its most concentrated trail ecosystem.",
+      "counties": [
+        "Cayuga", "Chemung", "Livingston", "Monroe", "Ontario",
+        "Schuyler", "Seneca", "Steuben", "Tioga", "Tompkins", "Yates"
+      ],
+      "base_towns": ["Ithaca", "Geneva", "Corning", "Hammondsport", "Canandaigua", "Watkins Glen", "Penn Yan"],
+      "drive_times": {
+        "nyc": "4-5 hours",
+        "albany": "3-4 hours",
+        "buffalo": "1.5-2 hours",
+        "rochester": "0.5-1.5 hours",
+        "syracuse": "1-2 hours"
+      },
+      "amtrak": {
+        "available": false,
+        "stations": [],
+        "line": null,
+        "notes": "No direct Amtrak; closest stations are Syracuse and Rochester"
+      },
+      "trails": [
+        {
+          "name": "Seneca Lake Wine Trail",
+          "type": "wine",
+          "counties": ["Schuyler", "Seneca", "Yates"],
+          "website": "https://senecalakewine.com",
+          "stops_approx": 35,
+          "passport": true
+        },
+        {
+          "name": "Keuka Lake Wine Trail",
+          "type": "wine",
+          "counties": ["Steuben", "Yates"],
+          "website": "https://www.keukawinetrail.com",
+          "stops_approx": 12,
+          "passport": true
+        },
+        {
+          "name": "Cayuga Lake Wine Trail",
+          "type": "wine",
+          "counties": ["Tompkins", "Cayuga", "Seneca"],
+          "website": "https://www.cayugawinetrail.com",
+          "stops_approx": 16,
+          "passport": true
+        },
+        {
+          "name": "Canandaigua Lake Wine Trail",
+          "type": "wine",
+          "counties": ["Ontario"],
+          "website": "https://www.canandaiguawinetrail.com",
+          "stops_approx": 8,
+          "passport": true
+        },
+        {
+          "name": "Finger Lakes Beer Trail",
+          "type": "craft_beverage",
+          "counties": ["Ontario", "Seneca", "Schuyler", "Steuben", "Tompkins", "Yates"],
+          "website": "https://www.fingerlakesbeertrail.com",
+          "stops_approx": 50,
+          "passport": true
+        },
+        {
+          "name": "Finger Lakes Cider Trail",
+          "type": "craft_beverage",
+          "counties": ["Ontario", "Seneca", "Schuyler", "Tompkins", "Yates"],
+          "website": null,
+          "stops_approx": 12,
+          "passport": false
+        },
+        {
+          "name": "Finger Lakes Cheese Trail",
+          "type": "food",
+          "counties": ["Schuyler", "Steuben", "Tompkins", "Yates"],
+          "website": "https://www.fingerlakescheese.com",
+          "stops_approx": 15,
+          "passport": true
+        },
+        {
+          "name": "Gorge Trail (Finger Lakes Trail System)",
+          "type": "outdoor",
+          "counties": ["Tompkins", "Schuyler", "Steuben"],
+          "website": "https://www.fingerlakestrail.org",
+          "stops_approx": 20,
+          "passport": false
+        },
+        {
+          "name": "Corning Gaffer District Trail",
+          "type": "culture",
+          "counties": ["Steuben"],
+          "website": null,
+          "stops_approx": 10,
+          "passport": false
+        },
+        {
+          "name": "Finger Lakes Sweet Treat Trail",
+          "type": "food",
+          "counties": ["Cayuga", "Seneca", "Ontario"],
+          "website": null,
+          "stops_approx": 20,
+          "passport": true
+        },
+        {
+          "name": "Hemlock-Canadice State Forest Trail",
+          "type": "outdoor",
+          "counties": ["Livingston", "Ontario"],
+          "website": null,
+          "stops_approx": 5,
+          "passport": false
+        },
+        {
+          "name": "Chemung Valley History Trail",
+          "type": "heritage",
+          "counties": ["Chemung"],
+          "website": null,
+          "stops_approx": 8,
+          "passport": false
+        }
+      ],
+      "dmos": [
+        {
+          "name": "Finger Lakes Tourism Alliance",
+          "url": "https://www.fingerlakes.org",
+          "counties_served": ["Cayuga", "Chemung", "Livingston", "Monroe", "Ontario", "Schuyler", "Seneca", "Steuben", "Tioga", "Tompkins", "Yates"]
+        },
+        {
+          "name": "Visit Ithaca",
+          "url": "https://www.visitithaca.com",
+          "counties_served": ["Tompkins"]
+        },
+        {
+          "name": "Corning and the Southern Finger Lakes",
+          "url": "https://www.corningfingerlakes.com",
+          "counties_served": ["Steuben", "Chemung"]
+        },
+        {
+          "name": "Finger Lakes Visitors Connection (Ontario County)",
+          "url": "https://www.visitfingerlakes.com",
+          "counties_served": ["Ontario"]
+        },
+        {
+          "name": "Yates County Tourism",
+          "url": "https://www.yatesny.com",
+          "counties_served": ["Yates"]
+        },
+        {
+          "name": "Schuyler County Tourism",
+          "url": "https://www.schuylercounty.us",
+          "counties_served": ["Schuyler"]
+        },
+        {
+          "name": "Seneca County Tourism",
+          "url": "https://www.fingerlakescentral.com",
+          "counties_served": ["Seneca"]
+        },
+        {
+          "name": "Cayuga County Tourism",
+          "url": "https://www.tourcayuga.com",
+          "counties_served": ["Cayuga"]
+        },
+        {
+          "name": "Visit Rochester",
+          "url": "https://www.visitrochester.com",
+          "counties_served": ["Monroe"]
+        },
+        {
+          "name": "Livingston County Tourism",
+          "url": "https://www.visitlivingstoncounty.com",
+          "counties_served": ["Livingston"]
+        },
+        {
+          "name": "Tioga County Tourism",
+          "url": "https://www.tiogacountyny.gov",
+          "counties_served": ["Tioga"]
+        }
+      ]
+    },
+    "hudson_valley": {
+      "name": "Hudson Valley",
+      "description": "The Hudson River corridor from Westchester to Albany — America's first art movement landscape, now its most dynamic farm-to-table scene.",
+      "counties": [
+        "Columbia", "Dutchess", "Orange", "Putnam",
+        "Rockland", "Sullivan", "Ulster", "Westchester"
+      ],
+      "base_towns": ["Beacon", "Hudson", "New Paltz", "Rhinebeck", "Cold Spring", "Nyack"],
+      "drive_times": {
+        "nyc": "1-2.5 hours",
+        "albany": "1-2.5 hours",
+        "hartford": "2-3 hours"
+      },
+      "amtrak": {
+        "available": true,
+        "stations": ["Croton-Harmon", "Poughkeepsie", "Rhinecliff", "Hudson"],
+        "line": "Empire Service"
+      },
+      "trails": [
+        {
+          "name": "Hudson Valley Wine Trail",
+          "type": "wine",
+          "counties": ["Dutchess", "Columbia", "Ulster"],
+          "website": null,
+          "stops_approx": 12,
+          "passport": false
+        },
+        {
+          "name": "Shawangunk Wine Trail",
+          "type": "wine",
+          "counties": ["Ulster", "Orange"],
+          "website": "https://www.shawangunkwinetrail.com",
+          "stops_approx": 15,
+          "passport": true
+        },
+        {
+          "name": "Hudson Valley Craft Beverage Trail",
+          "type": "craft_beverage",
+          "counties": ["Dutchess", "Columbia", "Ulster", "Orange"],
+          "website": null,
+          "stops_approx": 25,
+          "passport": false
+        },
+        {
+          "name": "Hudson Valley Farm Trail",
+          "type": "agriculture",
+          "counties": ["Dutchess", "Columbia", "Ulster"],
+          "website": null,
+          "stops_approx": 30,
+          "passport": false
+        },
+        {
+          "name": "Hudson River Art Trail",
+          "type": "culture",
+          "counties": ["Dutchess", "Putnam", "Westchester", "Rockland"],
+          "website": null,
+          "stops_approx": 15,
+          "passport": false
+        },
+        {
+          "name": "Orange County Heritage Trail",
+          "type": "heritage",
+          "counties": ["Orange"],
+          "website": null,
+          "stops_approx": 10,
+          "passport": false
+        }
+      ],
+      "dmos": [
+        {
+          "name": "Dutchess Tourism",
+          "url": "https://www.dutchesstourism.com",
+          "counties_served": ["Dutchess"]
+        },
+        {
+          "name": "Columbia County Tourism",
+          "url": "https://www.columbiacountyny.org",
+          "counties_served": ["Columbia"]
+        },
+        {
+          "name": "Orange County Tourism",
+          "url": "https://www.orangetourism.org",
+          "counties_served": ["Orange"]
+        },
+        {
+          "name": "Visit Ulster County",
+          "url": "https://ulstercountyalive.com",
+          "counties_served": ["Ulster"]
+        },
+        {
+          "name": "Putnam County Tourism",
+          "url": "https://www.visitputnam.org",
+          "counties_served": ["Putnam"]
+        },
+        {
+          "name": "Visit Rockland",
+          "url": "https://www.rocklandtourism.com",
+          "counties_served": ["Rockland"]
+        },
+        {
+          "name": "Westchester County Tourism",
+          "url": "https://www.visitwestchesterny.com",
+          "counties_served": ["Westchester"]
+        }
+      ]
+    },
+    "niagara_frontier": {
+      "name": "Greater Niagara",
+      "description": "Buffalo, Niagara Falls, and the Erie Canal's western terminus — post-industrial renaissance, world-class architecture, and the Falls.",
+      "counties": [
+        "Erie", "Genesee", "Niagara", "Orleans", "Wyoming"
+      ],
+      "base_towns": ["Buffalo", "Niagara Falls", "East Aurora", "Lewiston", "Lockport"],
+      "drive_times": {
+        "nyc": "6-7 hours",
+        "toronto": "1.5-2 hours",
+        "cleveland": "3-3.5 hours",
+        "rochester": "1-1.5 hours"
+      },
+      "amtrak": {
+        "available": true,
+        "stations": ["Buffalo-Depew", "Buffalo-Exchange Street", "Niagara Falls"],
+        "line": "Empire Service, Lake Shore Limited, Maple Leaf"
+      },
+      "trails": [
+        {
+          "name": "Niagara Wine Trail",
+          "type": "wine",
+          "counties": ["Niagara"],
+          "website": "https://www.niagarawinetrail.org",
+          "stops_approx": 20,
+          "passport": true
+        },
+        {
+          "name": "Buffalo Niagara Craft Beverage Trail",
+          "type": "craft_beverage",
+          "counties": ["Erie", "Niagara"],
+          "website": null,
+          "stops_approx": 30,
+          "passport": false
+        },
+        {
+          "name": "Erie Canal Heritage Trail",
+          "type": "heritage",
+          "counties": ["Erie", "Niagara", "Genesee", "Orleans"],
+          "website": null,
+          "stops_approx": 15,
+          "passport": false
+        },
+        {
+          "name": "Genesee Country Farm Trail",
+          "type": "agriculture",
+          "counties": ["Genesee", "Wyoming"],
+          "website": null,
+          "stops_approx": 10,
+          "passport": false
+        }
+      ],
+      "dmos": [
+        {
+          "name": "Visit Buffalo Niagara",
+          "url": "https://www.visitbuffaloniagara.com",
+          "counties_served": ["Erie", "Niagara"]
+        },
+        {
+          "name": "Genesee County Tourism",
+          "url": "https://www.visitgeneseeny.com",
+          "counties_served": ["Genesee"]
+        },
+        {
+          "name": "Orleans County Tourism",
+          "url": "https://www.orleanscountytourism.com",
+          "counties_served": ["Orleans"]
+        },
+        {
+          "name": "Wyoming County Tourism",
+          "url": "https://www.gowyomingcountyny.com",
+          "counties_served": ["Wyoming"]
+        }
+      ]
+    },
+    "thousand_islands": {
+      "name": "Thousand Islands-Seaway",
+      "description": "Where the St. Lawrence River scatters 1,864 islands along the Canadian border — boating country, castle country, fishing country.",
+      "counties": [
+        "Jefferson", "Lewis", "Oswego", "St. Lawrence"
+      ],
+      "base_towns": ["Watertown", "Clayton", "Alexandria Bay", "Sackets Harbor", "Canton", "Ogdensburg"],
+      "drive_times": {
+        "nyc": "5-6 hours",
+        "albany": "3.5-4.5 hours",
+        "syracuse": "1.5-2.5 hours",
+        "ottawa": "1-1.5 hours",
+        "montreal": "2-2.5 hours"
+      },
+      "amtrak": {
+        "available": false,
+        "stations": [],
+        "line": null,
+        "notes": "No direct Amtrak; closest station is Syracuse"
+      },
+      "trails": [
+        {
+          "name": "Thousand Islands Craft Beverage Trail",
+          "type": "craft_beverage",
+          "counties": ["Jefferson"],
+          "website": null,
+          "stops_approx": 8,
+          "passport": false
+        },
+        {
+          "name": "Seaway Trail",
+          "type": "scenic",
+          "counties": ["Jefferson", "Oswego", "St. Lawrence"],
+          "website": "https://www.seawaytrail.com",
+          "stops_approx": 20,
+          "passport": true
+        },
+        {
+          "name": "St. Lawrence County Farm Trail",
+          "type": "agriculture",
+          "counties": ["St. Lawrence"],
+          "website": null,
+          "stops_approx": 12,
+          "passport": false
+        }
+      ],
+      "dmos": [
+        {
+          "name": "Thousand Islands International Tourism Council",
+          "url": "https://www.visit1000islands.com",
+          "counties_served": ["Jefferson"]
+        },
+        {
+          "name": "St. Lawrence County Tourism",
+          "url": "https://www.visitstlc.com",
+          "counties_served": ["St. Lawrence"]
+        },
+        {
+          "name": "Oswego County Tourism",
+          "url": "https://www.visitoswegocounty.com",
+          "counties_served": ["Oswego"]
+        },
+        {
+          "name": "Lewis County Tourism",
+          "url": "https://www.naturallylewiscounty.com",
+          "counties_served": ["Lewis"]
+        }
+      ]
+    }
+  },
+  "meta": {
+    "total_regions": 9,
+    "brand": "Upstate",
+    "powered_by": "Tourismo",
+    "url": "upstate.travel",
+    "soul": "Where New York goes to remember what matters",
+    "idea": "Go Further Upstate",
+    "total_trails_approx": 75,
+    "forbidden_phrases": [
+      "hidden gem", "charming", "quaint", "nestled", "breathtaking",
+      "rustic charm", "off the beaten path", "world-class", "scenic byway",
+      "there's something for everyone", "come experience", "immerse yourself",
+      "a must-see", "you won't be disappointed", "explore all that Upstate has to offer",
+      "a true gem of New York"
+    ]
+  }
+}
